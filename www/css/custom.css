@@ -819,18 +819,18 @@ button#show-dialog {
 
 
 
+
 .mdl-button {
     margin: 0;
     border: none;
-
-
     display: block;
     -webkit-flex-grow: 0;
     /* background: #d10000; */
-    background: rgba(0,0,0,0.1);
+    background: rgba(209,0,0,0.7) !important;
     border-radius: 0;
     -ms-flex-positive: 0;
     flex-grow: 0;
+    color: #fff !important;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
@@ -841,8 +841,20 @@ button#show-dialog {
     font-weight: 500;
     font-size: 14px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, .6);
+    /* color: rgba(255, 255, 255, .6); */
     overflow: hidden;
+}
+
+
+
+button.close {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    /* color: #d10000 !important; */
+    border: 0;
+    text-shadow: 1px 1px 1px #d10000 !important;
 }
 
 
