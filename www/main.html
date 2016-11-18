@@ -1,3 +1,5 @@
+
+
 <html>
 <head>
     <meta content="width=device-width,initial-scale=1" name="viewport">
@@ -19,12 +21,9 @@
     <style>
         /* boooo opera */
         -o-transition:rotate(3600 deg)
-
         ; /* works */
     </style>
     <script src="cordova.js"></script>
-
-
     <script type="text/javascript" charset="utf-8">
         function onLoad() {
             document.addEventListener("deviceready", onDeviceReady, false);
@@ -59,7 +58,6 @@
         }
     </script>
     <!-- <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>-->
-
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
     <script src="js/material.min.js"></script>
     <script src="js/material-modal.min.js"></script>
@@ -72,8 +70,6 @@
     <script charset="utf-8" src="https://cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
     <script charset="utf-8" src="https://cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.min.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
-
-
     <script type="text/javascript" charset="utf-8">
         function getStarted3() {
 
@@ -213,6 +209,19 @@
     <main class="mdl-layout__content">
         <section class="mdl-layout__tab-panel is-active" id="fixed-tab-home">
             <div class="page-content" style="text-align: center;">
+                <button type="button" class="mdl-button show-modal" style="background: #d10000; z-index:999999;">Show Modal
+                </button>
+                <dialog class="mdl-dialog">
+                    <div class="mdl-dialog__content">
+                        <p>
+                            Allow this site to collect usage data to improve your experience?
+                        </p>
+                    </div>
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+                        <button type="button" class="mdl-button">Agree</button>
+                        <button type="button" class="mdl-button close">Disagree</button>
+                    </div>
+                </dialog>
                 <ul class="center-list main-buttons">
                     <li>
                         <div id="raysDemoHolder" class="animated fadeInUpBig"
@@ -244,9 +253,10 @@
                 </ul>
             </div>
         </section>
+<!-- PROFILE -->
+
         <section class="mdl-layout__tab-panel" id="fixed-tab-profile">
             <div class="page-content">
-
                 <div id="profileContent" class="profile-content">
                     <a href="#" onclick="showImageLoader();">
                         <div id="avatar" class="avatar"></div>
@@ -314,9 +324,7 @@
                     </table>
                     <hr/>
                     <table id="output" class="table table-responsive">
-
                     </table>
-
                 </div>
                 <div id="editmyProfile" style="display: none;">
                     <div class="mdl-textfield mdl-js-textfield readonly">
@@ -374,9 +382,10 @@
                     </div>
                     <br/><br/>
         </section>
+
+
         <section class="mdl-layout__tab-panel " id="fixed-tab-board" style="padding: 20px 5px;">
             <div class="page-content">
-
                 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
                     <div class="mdl-tabs__tab-bar">
                         <a href="#starks-panel" class="mdl-tabs__tab is-active">Individual</a>
@@ -401,7 +410,6 @@
                             <tbody>
                             </tbody>
                         </table>
-
                     </div>
                     <div class="mdl-tabs__panel" id="lannisters-panel">
                         <h5>Overall</h5>
@@ -493,59 +501,59 @@
             </div>
         </section>
 
-        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-notification">
-            <div class="page-content" style="text-align: center;">
 
+
+<!-- PROFILE -->
+
+        <section class="mdl-layout__tab-panel" id="fixed-tab-notification">
+            <div class="page-content" style="text-align: center;">
                 <!-- Three Line List with secondary info and action -->
                 <style>
                     .demo-list-three {
                         width: 650px;
                     }
                 </style>
-
-                                <ul class="demo-list-three mdl-list">
-                                    <li class="mdl-list__item mdl-list__item--three-line">
-                                <span class="mdl-list__item-primary-content">
-                                  <i class="material-icons mdl-list__item-avatar">person</i>
-                                  <span>Bryan Cranston</span>
-                                  <span class="mdl-list__item-text-body">
-                                    Bryan Cranston played the role of Walter in Breaking Bad. He is also known
-                                    for playing Hal in Malcom in the Middle.
-                                  </span>
-                                </span>
-                                <span class="mdl-list__item-secondary-content">
-                                  <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
-                                </span>
-                                                </li>
-                                                <li class="mdl-list__item mdl-list__item--three-line">
-                                <span class="mdl-list__item-primary-content">
-                                  <i class="material-icons  mdl-list__item-avatar">person</i>
-                                  <span>Aaron Paul</span>
-                                  <span class="mdl-list__item-text-body">
-                                    Aaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                                    the "Need For Speed" Movie.
-                                  </span>
-                                </span>
-                                <span class="mdl-list__item-secondary-content">
-                                  <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
-                                </span>
-                                                </li>
-                                                <li class="mdl-list__item mdl-list__item--three-line">
-                                <span class="mdl-list__item-primary-content">
-                                  <i class="material-icons  mdl-list__item-avatar">person</i>
-                                  <span>Bob Odenkirk</span>
-                                  <span class="mdl-list__item-text-body">
-                                    Bob Odinkrik played the role of Saul in Breaking Bad. Due to public fondness for the
-                                    character, Bob stars in his own show now, called "Better Call Saul".
-                                  </span>
-                                </span>
-                                <span class="mdl-list__item-secondary-content">
-                                  <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
-                                </span>
-              </li>
-                                </ul>
-
-
+                <ul class="demo-list-three mdl-list">
+                    <li class="mdl-list__item mdl-list__item--three-line">
+			<span class="mdl-list__item-primary-content">
+			<i class="material-icons mdl-list__item-avatar">person</i>
+			<span>Bryan Cranston</span>
+			<span class="mdl-list__item-text-body">
+			Bryan Cranston played the role of Walter in Breaking Bad. He is also known
+			for playing Hal in Malcom in the Middle.
+			</span>
+			</span>
+			<span class="mdl-list__item-secondary-content">
+			<a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+			</span>
+                    </li>
+                    <li class="mdl-list__item mdl-list__item--three-line">
+			<span class="mdl-list__item-primary-content">
+			<i class="material-icons  mdl-list__item-avatar">person</i>
+			<span>Aaron Paul</span>
+			<span class="mdl-list__item-text-body">
+			Aaron Paul played the role of Jesse in Breaking Bad. He also featured in
+			the "Need For Speed" Movie.
+			</span>
+			</span>
+			<span class="mdl-list__item-secondary-content">
+			<a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+			</span>
+                    </li>
+                    <li class="mdl-list__item mdl-list__item--three-line">
+			<span class="mdl-list__item-primary-content">
+			<i class="material-icons  mdl-list__item-avatar">person</i>
+			<span>Bob Odenkirk</span>
+			<span class="mdl-list__item-text-body">
+			Bob Odinkrik played the role of Saul in Breaking Bad. Due to public fondness for the
+			character, Bob stars in his own show now, called "Better Call Saul".
+			</span>
+			</span>
+			<span class="mdl-list__item-secondary-content">
+			<a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+			</span>
+                    </li>
+                </ul>
             </div>
         </section>
         <!--
@@ -563,73 +571,20 @@
             -->
     </main>
 </div>
-<!--
-    <script>
 
-        $(document).ready(function(){
-            $('#user_iddddddd').val(localStorage.getItem('user_id'));
-
-            var options = {
-                //target: '#upload_loading',
-                beforeSubmit: showRequest,
-                success: showResponse
-            };
-            $('#myForms').ajaxForm(options);
-        });
-
-        function showRequest(formData, jqForm, options){
-            var queryString = $.param(formData);
-            console.log(formData);
-        }
-        function showResponse(responseText, statusText, xhr, $form){
-            console.log(statusText);
-            console.log(responseText);
-            if(statusText == 'success'){
-                //$('#page_loader_cb').fadeOut(100);
-                $('#upload_input').val('');
-                console.log('upload complete');
-                if(responseText == '0'){
-                    console.log('Error or file not supported! required format :png,gif,jpeg sie: less than 3mb');
-                }else{
-                    console.log('Upload success!');
-
-                }
-            }
-        }
-
-    </script>
-    -->
-
-
-
-
-<button type="button" class="mdl-button show-modal" style="z-index:999999;">Show Modaljbjkb jkkbkbkbk
-</button>
-<dialog class="mdl-dialog">
-    <div class="mdl-dialog__content">
-        <p>
-            Allow this site to collect usage data to improve your experience?
-        </p>
-    </div>
-    <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
-        <button type="button" class="mdl-button">Agree</button>
-        <button type="button" class="mdl-button close">Disagree</button>
-    </div>
-</dialog>
 <script>
     var dialog = document.querySelector('dialog');
     var showModalButton = document.querySelector('.show-modal');
-    if (! dialog.showModal) {
+    if (!dialog.showModal) {
         dialogPolyfill.registerDialog(dialog);
     }
-    showModalButton.addEventListener('click', function() {
+    showModalButton.addEventListener('click', function () {
         dialog.showModal();
     });
-    dialog.querySelector('.close').addEventListener('click', function() {
+    dialog.querySelector('.close').addEventListener('click', function () {
         dialog.close();
     });
 </script>
-
 </body>
 </html>
 
