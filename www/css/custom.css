@@ -1,9 +1,14 @@
 
 body {
     font-weight: 100;
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto", sans-serif !important;
 }
 
+
+
+section#fixed-tab-home {
+    overflow: hidden;
+}
 
 a:focus, a:hover {
 color: rgb(225,225,225) !important;
@@ -225,6 +230,12 @@ main#fizzquizz, .mdl-layout.mdl-js-layout.mdl-layout--fixed-header.mdl-layout--f
 .mdl-layout__content {
     background: url(../img/bubbles.gif) #f8f8f8 no-repeat !important;
     background-size: cover !important;
+}
+
+
+body.notifications .mdl-layout__content {
+    background: #f8f8f8 !important;
+    background-image: none !important;
 }
 
 #loader {
@@ -820,33 +831,6 @@ button#show-dialog {
 
 
 
-.mdl-button {
-    margin: 0;
-    border: none;
-    display: block;
-    -webkit-flex-grow: 0;
-    /* background: #d10000; */
-    background: rgba(209,0,0,0.7) !important;
-    border-radius: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    color: #fff !important;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    text-decoration: none;
-    height: 48px;
-    line-height: 48px;
-    text-align: center;
-    font-weight: 500;
-    font-size: 14px;
-    text-transform: uppercase;
-    /* color: rgba(255, 255, 255, .6); */
-    overflow: hidden;
-}
-
-
-
 button.close {
     -webkit-appearance: none;
     padding: 0;
@@ -1098,4 +1082,84 @@ table.stats td {
 
 li#notiFier {
     overflow: visible;
+}
+
+
+.btn-red {
+    background: #d10000;
+    color: #fff !important;
+}
+
+
+.mdl-menu__container.is-upgraded.is-visible {
+    right:0 !important;
+}
+
+
+
+
+    .mdl-layout__header-row {
+        height: 56px;
+        padding: 0 72px 0 72px !important;
+    }
+
+    .mdl-layout-title {
+        margin:0 auto;
+    }
+
+
+i.fa.fa-chevron-left {
+    width: auto;
+    padding: 20px 20px;
+    text-align: right;
+    background: #eee;
+    color: #d10000;
+}
+
+i.fa.fa-fizz-quizz {
+    background: url('../img/icon.png') no-repeat scroll center center;
+}
+
+
+.material-icons.star.new {
+    color: #d10000;
+}
+
+
+
+.material-icons.star {
+    color: #E2E2E1;
+}
+
+
+
+body > div.mdl-layout__container > div > div.mdl-layout__drawer.is-visible > h4 {
+    color: #d10000;
+}
+
+.sweet-alert.showSweetAlert.visible {
+    position: fixed !important;
+    top: 20%;
+    left: 0;
+    padding: 0;
+
+
+    border-radius: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 0 !important;
+}
+
+
+.mdl-layout__header .mdl-layout__drawer-button , #right_btn{
+    margin: 4px;
+    top: 15px !important;
+}
+
+.mdl-layout-title {
+    margin-top:10px;
+}
+
+#uploadImage, #canceluploadImage {
+    columns:#d10000 !important;
 }

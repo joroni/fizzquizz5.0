@@ -212,3 +212,14 @@ $(function() {
 
 
 
+
+function closeDrawer() {
+    $('.mdl-layout__drawer').removeClass('is-visible');
+
+}
+
+
+function openDrawer() {
+    $('.mdl-layout__drawer').addClass('is-visible');
+
+}
