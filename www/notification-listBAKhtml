@@ -1,4 +1,23 @@
+<body class="notifications" onload="onLoad()">
+<div id="loader" style="display: none;">
+    <div class="mdl-spinner mdl-js-spinner is-active"></div>
+</div>
+<div id="loader-mini" style="display: none;">
+    <div class="mdl-spinner mdl-js-spinner is-active"></div>
+</div>
+<!-- Simple header with fixed tabs. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <div id='swipe_menu'>
+                <span class="mdl-layout-title" id='top_title'><img src="img/logo-horizontal2x.png"></span>
+            </div>
+            
+        </div>
+        <!-- Tabs -->
 
+    </header>
+    <main class="mdl-layout__content">
 
 <h3>Simple Collection</h3><hr>
 <ul class="collection">
@@ -32,7 +51,7 @@
 <h3>Collection with Avatar</h3><hr>
 <ul class="collection">
     <li class="collection-item avatar">
-        <img alt="HTML5" src="icon.png" class="circle">
+        <img alt="HTML5" src="html5-mini-logo.jpg" class="circle">
         <span class="title">HTML5</span>
         <p>HTML5 is the next major revision of the HTML standard superseding HTML 4.01, XHTML 1.0, and XHTML 1.1.<br> HTML5 is a standard for structuring and presenting content on the World Wide Web.</p>
         <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
@@ -51,3 +70,6 @@
     <li class="collection-item dismissable">JavaScript</li>
     <li class="collection-item dismissable">CSS</li>
 </ul>
+</main>
+
+</body>
