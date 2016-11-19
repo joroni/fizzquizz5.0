@@ -27,7 +27,7 @@
             <state relative-caret-position="-1110">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1479411482000" expanded="true" signature="3171:3206" placeholder="..." />
+                <marker date="1479552527000" expanded="true" signature="3171:3206" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -37,6 +37,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/www/index.html" />
+      </list>
+    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" />
   <component name="JsBuildToolPackageJson" detection-done="true" />
@@ -171,7 +178,7 @@
         <state relative-caret-position="-1110">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1479411482000" expanded="true" signature="3171:3206" placeholder="..." />
+            <marker date="1479552527000" expanded="true" signature="3171:3206" placeholder="..." />
           </folding>
         </state>
       </provider>
