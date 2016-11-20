@@ -3,7 +3,7 @@
  */
 
 
-
+/*
 
 document.querySelector('.sweet-notifications').onclick = function () {
     /*  var Lol =
@@ -47,15 +47,15 @@ document.querySelector('.sweet-notifications').onclick = function () {
 */
 
 
-    $.get( "http://localhost:63342/fizzquizzz6/www/notification-list.html", function( data ) {
+  //  $.get( "http://localhost:63342/fizzquizzz6/www/notification-list.html", function( data ) {
 
-        $('.showSweetAlert').html(data);
+//        $('.showSweetAlert').html(data);
         // alert( "Load was performed." );
-    });
+//    });
 
-    swal('Hellow');
+  //  swal(data);
 
-};
+//};
 
 document.querySelector('.sweet-message').onclick = function () {
     $(this).removeClass('unread');
