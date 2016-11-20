@@ -1,0 +1,649 @@
+
+
+<html>
+<head>
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="css/materialize/icon.css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
+    <link rel="stylesheet" href="css/materialize/material.css"/>
+    <link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/material.red-purple.min.css"/>
+    <link rel="stylesheet" href="css/material-modal.css">
+    <link rel="stylesheet" href="css/demo.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link href='css/media.css' media='screen' rel='stylesheet' type='text/css'>
+    <link href='css/bootstrap.min.css' media='screen' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="css/animate.css" type="text/css">
+    <link rel="stylesheet" href="css/rays.css" type="text/css">
+    <link rel="stylesheet" href="css/table-sorter/tablesorter.css" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <link href="sweetalert/docs.css" rel="stylesheet">
+
+    <script src="sweetalert/sweetalert.js"></script>
+    <link rel="stylesheet" href="sweetalert/sweetalert.css">
+    <style>
+        /* boooo opera */
+        -o-transition:rotate(3600 deg)
+        ; /* works */
+    </style>
+    <script src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+            loadQuizDetails();
+            getInitQuizData();
+        }
+
+        // cordova is ready
+        //
+        function onDeviceReady() {
+            noNet(base_url + '/json.php',
+                    function ( data ) {
+                        for (i = 0; i < data.length; i++) {
+                            //document.getElementById("result1").innerHTML += '<li> ' + data[i]['name'] + '</li>';
+                            console.log(data[i]['name']);
+                        }
+                    }
+            );
+
+            setTimeout(function () {
+                //  $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
+                //loaderSpinMini();
+
+                // getInitQuizData();
+                get_Quiz_History();
+                loadQuizDetails();
+
+                getQuizData();
+
+
+            }, 3000);
+        }
+    </script>
+    <!--
+       <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
+    <script src="js/material.min.js"></script>
+    <script src="js/material-modal.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/all.js"></script>
+    <script src="js/myApp.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/quizinfo.js"></script>
+    <script charset="utf-8" src="https://cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
+    <script charset="utf-8" src="https://cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        function getStarted3() {
+
+            window.location.replace('fizzquizzData.html');
+            // console.log('Confirm my FizzQuizz link:', fizzquizz);
+
+
+        }
+
+
+        function loadQuizDetails() {
+
+            setTimeout(myFunctionLoading, 3000);
+
+            function myFunctionLoading() {
+                $('#loader-mini').show();
+                $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
+                get_Last_Quiz_Record();
+                getQuizData();
+                get_Quiz_History();
+
+
+                setTimeout(myFunctionLoadingOut, 3000);
+                function myFunctionLoadingOut() {
+                    $('#loader-mini').hide();
+                }
+            }
+
+
+            function uploadingImg() {
+                $('#loader-mini').show();
+                setTimeout(myFunction, 3000);
+
+            }
+        }
+
+
+    </script>
+</head>
+<body onload="onLoad()">
+<div id="loader" style="display: none;">
+    <div class="mdl-spinner mdl-js-spinner is-active"></div>
+</div>
+<div id="loader-mini" style="display: none;">
+    <div class="mdl-spinner mdl-js-spinner is-active"></div>
+</div>
+<!-- Simple header with fixed tabs. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">
+              <span class="mdl-layout-title" id='top_title'>
+            <img src="img/logo-horizontal2x.png">
+            </span> 
+            </span>
+            <div class="mdl-textfield--align-right">
+                <button id="right_btn"
+                        class="mdl-button mdl-js-button mdl-button--icon" onclick="closeDrawer();"><i class="material-icons">more_vert</i>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="right_btn">
+                    <li class="mdl-menu__item user" style="background: #ddd;">
+                        <button id="userProf"
+                                class="mdl-button btn bt-lg  btn btn-lg mdl-button btn bt-lg--icon mdl-js-button mdl-js-ripple-effect">
+                            <i class="material-icons">autorenew</i></button>
+                    </li>
+                    <li class="mdl-menu__item"> Hi, <span id="user_firstname" class="truncate"></span></li>
+                    <li id="notiFier" class="mdl-menu__item"><span>Notifications</span>
+                        <button class="btn btn-red sweet-notifications"
+                                onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-1']);">New
+                        </button>
+                    </li>
+                    <!-- <li class="mdl-menu__item"><a href="image.html">Photo</a></li>-->
+                    <li onclick="log_out();" class="mdl-menu__item">Logout</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+
+
+            <a href="#" class="mdl-layout__tab"
+               onclick="window.open('http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/admins/mobile_controllers/user_result.php','_blank','location=no','closebuttoncaption=Return');">Leader
+                Board</a>
+
+
+            <a href="#fixed-tab-home" class="mdl-layout__tab is-active muidocs-icon-action-home">Home</a>
+            <a href="#fixed-tab-profile" onclick="myProfile();" class="mdl-layout__tab">Profile</a> 
+            <a href="#" onclick="window.open('http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/admins/mobile_controllers/user_result.php','_blank','location=no','closebuttoncaption=Return')">
+                Leader  Board</a> 
+            <a href="#fixed-tab-board" class="mdl-layout__tab">Records</a>  <a href="#fixed-notify-view" class="mdl-layout__tab">Notify</a>  
+        </div>
+
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+            <!-- <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
+               <a href="#scroll-tab-2" class="mdl-layout__tab">Tab 2</a>
+               <a href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>
+               <a href="#scroll-tab-4" class="mdl-layout__tab">Tab 4</a>
+               <a href="#scroll-tab-5" class="mdl-layout__tab">Tab 5</a>
+               <a href="#scroll-tab-6" class="mdl-layout__tab">Tab 6</a>
+               <a href="#scroll-tab-1" class="mdl-layout__tab">Tab 1</a>
+               <a href="#scroll-tab-2" class="mdl-layout__tab">Tab 2</a>
+               <a href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>
+               <a href="#scroll-tab-4" class="mdl-layout__tab">Tab 4</a>
+               <a href="#scroll-tab-5" class="mdl-layout__tab">Tab 5</a>
+               <a href="#scroll-tab-6" class="mdl-layout__tab">Tab 6</a> -->
+
+
+        </div>
+    </header>
+    <div class="mdl-layout__drawer"><i class="fa fa-chevron-left" onclick="closeDrawer();"></i>
+        <h4 class="mdl-layout-title">Notifications</h4>
+
+        <div class="snippet-demo-container demo-list demo-list__three-line">
+            <!-- Three Line List with secondary info and action -->
+            <style>
+                .demo-list-three {
+                    width: 100%;
+                }
+            </style>
+
+            <ul class="demo-list-three mdl-list">
+                <li class="mdl-list__item mdl-list__item--three-line">
+    <span class="mdl-list__item-primary-content">
+      <i class="material-icons mdl-list__item-avatar">person</i>
+      <span>Fizz Quizz</span>
+      <span class="mdl-list__item-text-body">
+        Bryan Cranston played the role of Walter in Breaking Bad. He is also known
+        for playing Hal in Malcom in the Middle.
+      </span>
+    </span>
+    <span class="mdl-list__item-secondary-content">
+      <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons star new">star</i></a>
+    </span>
+                </li>
+                <li class="mdl-list__item mdl-list__item--three-line">
+    <span class="mdl-list__item-primary-content">
+      <i class="material-icons  mdl-list__item-avatar">person</i>
+      <span>Aaron Paul</span>
+      <span class="mdl-list__item-text-body">
+        Aaron Paul played the role of Jesse in Breaking Bad. He also featured in
+        the "Need For Speed" Movie.
+      </span>
+    </span>
+    <span class="mdl-list__item-secondary-content">
+      <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons star">star</i></a>
+    </span>
+                </li>
+                <li class="mdl-list__item mdl-list__item--three-line">
+    <span class="mdl-list__item-primary-content">
+      <i class="material-icons  mdl-list__item-avatar">person</i>
+      <span>Bob Odenkirk</span>
+      <span class="mdl-list__item-text-body">
+        Bob Odinkrik played the role of Saul in Breaking Bad. Due to public fondness for the
+        character, Bob stars in his own show now, called "Better Call Saul".
+      </span>
+    </span>
+    <span class="mdl-list__item-secondary-content">
+      <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons star">star</i></a>
+    </span>
+                </li>
+            </ul>
+
+        </div>
+
+
+    </div>
+    <main class="mdl-layout__content">
+        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-home">
+            <div class="page-content" style="text-align: center;">
+                <!--<button type="button" class="mdl-button show-modal" style="background: #d10000; z-index:999999;">Show Modal
+                   </button>-->
+                <ul class="center-list main-buttons">
+                    <li>
+                        <div id="raysDemoHolder" class="animated fadeInUpBig"
+                             style="width: 250px; height: 250px; margin: 0 auto;">
+                            <img id="raysLogo" class="icon" src="img/canada-icon.svg">
+                            <div id="rays"></div>
+                            <ul id="output2" style="visibility:hidden;">
+                            </ul>
+                        </div>
+                        <!--  <div style="width: 250px; margin: 0 auto;" class="animated fadeInUpBig">
+                           <img class="icon" src="img/canada-icon.png">
+                           </div>-->
+                    </li>
+                    <li>
+                        <script>
+                            setTimeout(function () {
+                                $('#getStarted2').show();
+                            }, 6000);
+
+                        </script>
+                        <a href="#" id="getStarted2"
+                           style="display: none; color: #d10000 !important; min-width: 100%; z-index: 100;"
+                           class="btn-text button btn btn-lg mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Get
+                            Started</a>
+                        <!-- <a href="quiz.html" target="_blank" location="no"
+                           class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                            Play
+                           </a>-->
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- PROFILE -->
+        <section class="mdl-layout__tab-panel" id="fixed-tab-profile">
+            <div class="page-content">
+                <div id="profileContent" class="profile-content">
+                    <a href="#" onclick="showImageLoader();">
+                        <div id="avatar" class="avatar"></div>
+                    </a>
+                    <h3><span id="userfirstname"></span> <span id="userlastname"></span></h3>
+                    <h4><span id="userusername"></span></h4>
+                    <h5><span id="useremail"></span></h5>
+                    <div id="capturePhoto" style="display: none;">
+                        <form id="myForms"
+                              action="http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/uploadpicc"
+                              method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="user_id_upload" id="user_iddddddd"/>
+                            <!-- <div class="mdl-textfield mdl-js-textfield">
+                               <input type="file" name="upload_file[]" class="form-control" class="upload_image"
+                                      id="upload_input" value=""/>
+                               </div>-->
+                            <div class="box">
+                                <input type="file" name="upload_file[]" id="upload_input" class="inputfile"
+                                       data-multiple-caption="{count} files selected"/>
+                                <label for="upload_input">
+                                    <figure>
+                                        <!--<svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> -->
+                                        <img class="photoIcon"
+                                             src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDYwIDYwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MCA2MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxnPgoJPHBhdGggZD0iTTMwLDIwLjVjLTYuNjE3LDAtMTIsNS4zODMtMTIsMTJzNS4zODMsMTIsMTIsMTJzMTItNS4zODMsMTItMTJTMzYuNjE3LDIwLjUsMzAsMjAuNXoiIGZpbGw9IiNEODAwMjciLz4KCTxwYXRoIGQ9Ik01NS4yMDEsMTUuNWgtOC41MjRsLTQtMTBIMTcuMzIzbC00LDEwSDEydi01SDZ2NUg0Ljc5OUMyLjE1MiwxNS41LDAsMTcuNjUyLDAsMjAuMjk5djI5LjM2OCAgIEMwLDUyLjMzMiwyLjE2OCw1NC41LDQuODMzLDU0LjVoNTAuMzM0YzIuNjY1LDAsNC44MzMtMi4xNjgsNC44MzMtNC44MzNWMjAuMjk5QzYwLDE3LjY1Miw1Ny44NDgsMTUuNSw1NS4yMDEsMTUuNXogTTEwLDE1LjVIOHYtMyAgIGgyVjE1LjV6IE0zMCw1MC41Yy05LjkyNSwwLTE4LTguMDc1LTE4LTE4czguMDc1LTE4LDE4LTE4czE4LDguMDc1LDE4LDE4UzM5LjkyNSw1MC41LDMwLDUwLjV6IE01MiwyNy41Yy0yLjIwNiwwLTQtMS43OTQtNC00ICAgczEuNzk0LTQsNC00czQsMS43OTQsNCw0UzU0LjIwNiwyNy41LDUyLDI3LjV6IiBmaWxsPSIjRDgwMDI3Ii8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=="/>
+                                    </figure>
+                                    <span>Take a Photo</span>
+                                </label>
+                            </div>
+                            <input id="uploadImage" onclick="uploadingImg();" type="submit" value="Use Photo"
+                                   class="btn_usephoto btn-info btn-block"/>
+                            <input id="canceluploadImage" onclick="$('#capturePhoto').hide();" type="button"
+                                   value="Cancel"
+                                   class="btn_cancelphoto btn-danger btn-block"/>
+                        </form>
+                    </div>
+                    <table class="responsive-table profile">
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <a id="editProfile" href="#" onclick="edittheProfile();"
+                                   class="btn-floating btn-large waves-effect waves-light red"><i
+                                        class="material-icons">create</i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Division</label></td>
+                            <td>
+                                <div id="userdivision"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Unit</label></td>
+                            <td>
+                                <div id="userunit"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Area</label></td>
+                            <td>
+                                <div id="userarea"></div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <hr/>
+                    <table id="output" class="table table-responsive">
+                    </table>
+                </div>
+                <div id="editmyProfile" style="display: none;">
+                    <div class="mdl-textfield mdl-js-textfield readonly">
+                        <input class="mdl-textfield__input" readonly type="text" id="username">
+                        <label class="mdl-textfield__label" for="username"></label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="password" id="password">
+                        <label class="mdl-textfield__label" for="password"></label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="firstname">
+                        <label class="mdl-textfield__label" for="firstname"></label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="lastname">
+                        <label class="mdl-textfield__label" for="lastname"></label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield readonly">
+                        <input class="mdl-textfield__input" readonly type="text" id="email">
+                        <label class="mdl-textfield__label" for="email"></label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield readonly">
+                        <input class="mdl-textfield__input" type="text" readonly id="division">
+                        <label class="mdl-textfield__label" for="division"></label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield readonly">
+                        <input class="mdl-textfield__input" type="text" readonly id="unit">
+                        <label class="mdl-textfield__label" for="unit"></label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield readonly">
+                        <input class="mdl-textfield__input" readonly type="text" id="area">
+                        <label class="mdl-textfield__label" for="area"></label>
+                    </div>
+                    <div style='clear:both;'></div>
+                    <div id="update_1" style="display:none; width: 100%; color: lawngreen;">Update Successful</div>
+                    <div id="update_0" style="display:none;">Something wrong happen. Please Try again.</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6" style="float: left;">
+                                <button id="btnCancel" type='button'
+                                        class="mdl-layout__tab mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+                                        onclick="update_cancel();">
+                                    Cancel
+                                </button>
+                            </div>
+                            <div class="col-md-6" style="float:left;">
+                                <button id="btnUpdate" type='button'
+                                        class="mdl-layout__tab mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+                                        onclick="update_user();">
+                                    Update
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <br/><br/>
+        </section>
+        <section class="mdl-layout__tab-panel " id="fixed-tab-board" style="padding: 20px 5px;">
+            <div class="page-content">
+                <div class="examples">
+                    <button class="btn btn-lg btn-primary sweet-10"
+                            onclick="_gaq.push(['_trackEvent', 'example, 'try', 'Primary']);">Primary
+                    </button>
+                    <button class="btn btn-lg btn-info sweet-11"
+                            onclick="_gaq.push(['_trackEvent', 'example, 'try', 'Info']);">Info
+                    </button>
+                    <button class="btn btn-lg btn-success sweet-12"
+                            onclick="_gaq.push(['_trackEvent', 'example, 'try', 'Success']);">Success
+                    </button>
+                    <button class="btn btn-lg btn-warning sweet-13"
+                            onclick="_gaq.push(['_trackEvent', 'example, 'try', 'Warning']);">Warning
+                    </button>
+                    <button class="btn btn-lg btn-danger sweet-14"
+                            onclick="_gaq.push(['_trackEvent', 'example, 'try', 'Danger']);">Danger
+                    </button>
+                </div>
+                <h2>Original Examples</h2>
+                <h4>Basic example</h4>
+                <div class="row">
+                    <div class="col-sm-2 text-center">
+                        <p>
+                            <button class="btn btn-primary sweet-1"
+                                    onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-1']);">Try It
+                            </button>
+                        </p>
+                    </div>
+                    <div class="col-sm-10">
+                        <pre class="code">swal("Here's a message!")</pre>
+                    </div>
+                </div>
+                <h4>A title with a text under</h4>
+                <div class="row">
+                    <div class="col-sm-2 text-center">
+                        <p>
+                            <button class="btn btn-primary sweet-2"
+                                    onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-2']);">Try It
+                            </button>
+                        </p>
+                    </div>
+                    <div class="col-sm-10">
+                        <pre>swal("Here's a message!", "It's pretty, isn't it?")</pre>
+                    </div>
+                </div>
+                <h4>A success message!</h4>
+                <div class="row">
+                    <div class="col-sm-2 text-center">
+                        <p>
+                            <button class="btn btn-primary sweet-3"
+                                    onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-3']);">Try It
+                            </button>
+                        </p>
+                    </div>
+                    <div class="col-sm-10">
+                        <pre>swal("Good job!", "You clicked the button!", "success")</pre>
+                    </div>
+                </div>
+                <h4>A warning message, with a function attached to the "Confirm" button...</h4>
+                <div class="row">
+                    <div class="col-sm-2 text-center">
+                        <p>
+                            <button class="btn btn-primary sweet-4"
+                                    onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-4']);">Try It
+                            </button>
+                        </p>
+                    </div>
+                    <div class="col-sm-10">
+         <pre>
+         swal({
+         title: "Are you sure?",
+         text: "Your will not be able to recover this imaginary file!",
+         type: "warning",
+         showCancelButton: true,
+         confirmButtonClass: "btn-danger",
+         confirmButtonText: "Yes, delete it!",
+         closeOnConfirm: false
+         },
+         function(){
+         swal("Deleted!", "Your imaginary file has been deleted.", "success");
+         });</pre>
+                    </div>
+                </div>
+                <h4>...and by passing a parameter, you can execute something else for "Cancel".</h4>
+                <div class="row">
+                    <div class="col-sm-2 text-center">
+                        <p>
+                            <button class="btn btn-primary sweet-5"
+                                    onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-5']);">Try It
+                            </button>
+                        </p>
+                    </div>
+                    <div class="col-sm-10">
+         <pre>
+         swal({
+         title: "Are you sure?",
+         text: "You will not be able to recover this imaginary file!",
+         type: "warning",
+         showCancelButton: true,
+         confirmButtonClass: "btn-danger",
+         confirmButtonText: "Yes, delete it!",
+         cancelButtonText: "No, cancel plx!",
+         closeOnConfirm: false,
+         closeOnCancel: false
+         },
+         function(isConfirm) {
+         if (isConfirm) {
+         swal("Deleted!", "Your imaginary file has been deleted.", "success");
+         } else {
+         swal("Cancelled", "Your imaginary file is safe :)", "error");
+         }
+         });</pre>
+                    </div>
+                </div>
+                <h4>A message with a custom icon</h4>
+                <div class="row">
+                    <div class="col-sm-2 text-center">
+                        <p>
+                            <button class="btn btn-primary sweet-6"
+                                    onclick="_gaq.push(['_trackEvent', 'exit', 'footer', 'Lipis']);">Try It
+                            </button>
+                        </p>
+                    </div>
+                    <div class="col-sm-10">
+         <pre>
+         swal({
+         title: "Sweet!",
+         text: "Here's a custom image.",
+         imageUrl: 'thumbs-up.jpg'
+         });</pre>
+                    </div>
+                </div>
+                <h4>A replacement for the "prompt" function</h4>
+                <div class="row">
+                    <div class="col-sm-2 text-center">
+                        <p>
+                            <button class="btn btn-primary sweet-7"
+                                    onclick="_gaq.push(['_trackEvent', 'exit', 'footer', 'Lipis']);">Try It
+                            </button>
+                        </p>
+                    </div>
+                    <div class="col-sm-10">
+         <pre>
+         swal({
+         title: "An input!",
+         text: "Write something interesting:",
+         type: "input",
+         showCancelButton: true,
+         closeOnConfirm: false,
+         inputPlaceholder: "Write something"
+         }, function (inputValue) {
+         if (inputValue === false) return false;
+         if (inputValue === "") {
+         swal.showInputError("You need to write something!");
+         return false
+         }
+         swal("Nice!", "You wrote: " + inputValue, "success");
+         });</pre>
+                    </div>
+                </div>
+                <h4>With a loader (for a AJAX requests)</h4>
+                <div class="row">
+                    <div class="col-sm-2 text-center">
+                        <p>
+                            <button class="btn btn-primary sweet-8"
+                                    onclick="_gaq.push(['_trackEvent', 'exit', 'footer', 'Lipis']);">Try It
+                            </button>
+                        </p>
+                    </div>
+                    <div class="col-sm-10">
+         <pre>
+         swal({
+         title: "Ajax request example",
+         text: "Submit to run ajax request",
+         type: "info",
+         showCancelButton: true,
+         closeOnConfirm: false,
+         showLoaderOnConfirm: true
+         }, function () {
+         setTimeout(function () {
+         swal("Ajax request finished!");
+         }, 2000);
+         });</pre>
+                    </div>
+                </div>
+            </div>
+
+</section>
+<section class="mdl-layout__tab-panel " id="fixed-notify-view" style="padding: 20px 5px;">
+    <div class="page-content">
+        <h3>Collection with Avatar</h3>
+        <hr>
+        <ul class="collection">
+            <li class="collection-item avatar">
+                <img alt="HTML5" src="icon.png" class="circle">
+                <span class="title">HTML5</span>
+                <p>HTML5 is the next major revision of the HTML standard superseding HTML 4.01, XHTML 1.0, and XHTML
+                    1.1.<br> HTML5 is a standard for structuring and presenting content on the World Wide Web.</p>
+                <a href="#" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle green">insert_chart</i>
+                <span class="title">HighCharts</span>
+                <p></p>
+                <a href="#" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+        </ul>
+        <h3>Collection with dismissible content</h3>
+        <hr>
+        <ul class="collection">
+            <li class="collection-item dismissable">HTML 5</li>
+            <li class="collection-item dismissable">JQuery</li>
+            <li class="collection-item dismissable">JavaScript</li>
+            <li class="collection-item dismissable">CSS</li>
+        </ul>
+    </div>
+</section>
+<!--
+   <footer class="mdl-mega-footer">
+       <div class="mdl-mega-footer__middle-section">
+           <div class="mdl-mini-footer__left-section">
+
+               <ul class="mdl-mini-footer__link-list">
+                   <li><a href="#">Help</a></li>
+                   <li><a href="#">Privacy & Terms</a></li>
+               </ul>
+           </div>
+       </div>
+   </footer>
+   -->
+</main>
+</div>
+<script src="js/alertScript.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+
