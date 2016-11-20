@@ -1112,6 +1112,7 @@ i.fa.fa-chevron-left {
     width: auto;
     padding: 30px 20px 20px 20px;
     text-align: right;
+    float: right;
     background: #eee;
     color: #d10000;
 }
@@ -1161,4 +1162,10 @@ body > div.mdl-layout__container > div > div.mdl-layout__drawer.is-visible > h4 
 
 #uploadImage, #canceluploadImage {
     color: #d10000 !important;
+}
+
+
+.mdl-list__item, .mdl-list__item .mdl-list__item-primary-content {
+    width: 100%;
+    box-sizing: border-box;
 }
