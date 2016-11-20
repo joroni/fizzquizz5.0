@@ -49,6 +49,7 @@ $(function () {
             //var profile_photo =  base_url + '/upload/files/' + field.avatar;
             // $('#avatar').html('<div class="avatar" style="background-image: url("+ profile_photo +")');
             $('#avatar').css('background-image', 'url(' + profile_photo + ')');
+            $('#avatar2').css('background-image', 'url(' + profile_photo + ')');
             $("#avatar").empty();
             //for profile
             $('#userfirstname').text(field.fname);
@@ -172,6 +173,7 @@ function myProfile() {
             $('#userunit').text(field.aunit);
             $('#userarea').text(field.area);
             $('#avatar').text(field.avatar);
+            $('#avatar2').text(field.avatar);
 
 
             //$('#user_id').text(field.id);

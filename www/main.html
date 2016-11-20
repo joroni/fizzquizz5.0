@@ -123,26 +123,29 @@
         <div class="mdl-layout__header-row">
             <!-- Title -->
             <span class="mdl-layout-title">
-              <span class="mdl-layout-title" id='top_title'>
-            <img src="img/logo-horizontal2x.png">
-            </span> 
+                  <span class="mdl-layout-title" id='top_title'>
+                    <img src="img/logo-horizontal2x.png">
+                </span> 
             </span>
             <div class="mdl-textfield--align-right">
                 <button id="right_btn" class="mdl-button mdl-js-button mdl-button--icon" onclick="closeDrawer();"><i class="material-icons">more_vert</i>
                 </button>
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="right_btn">
-                    <li class="mdl-menu__item user" style="background: #eee;">
-                        <button id="userProf"
+                    <li class="mdl-menu__item user" style="background: #fff; text-align: center;">
+                        <!--<button id="userProf"
                                 class="mdl-button btn bt-lg  btn btn-lg mdl-button btn bt-lg--icon mdl-js-button mdl-js-ripple-effect">
-                            <i class="material-icons">autorenew</i></button>
+                            <i class="material-icons">autorenew</i></button>-->
+
+                            <div id="avatar2" class="avatar"></div>
+
                     </li>
                     <li class="mdl-menu__item"> Hi, <span id="user_firstname" class="truncate"></span></li>
-                    <li id="notiFier" class="mdl-menu__item"><span><a href="#" onclick="closeDrawer()">Notifications</a></span>
+                  <!--  <li id="notiFier" class="mdl-menu__item"><span><a href="#" onclick="closeDrawer()">Notifications</a></span>
                         <button class="btn btn-red sweet-notifications"
                                 onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-1']);">New
                         </button>
                     </li>
-
+-->
                     <li onclick="log_out();" class="mdl-menu__item">Logout</li>
                 </ul>
             </div>
@@ -164,8 +167,9 @@
             <a href="#scroll-tab-home" class="mdl-layout__tab is-active muidocs-icon-action-home">Home</a>
             <a href="#scroll-tab-profile" onclick="myProfile();" class="mdl-layout__tab">Profile</a> 
             <a href="#scroll-tab-profile" onclick="openLeaderBoard();" class="mdl-layout__tab">Leader  Board</a> 
-            <a href="#scroll-tab-board" class="mdl-layout__tab">Records</a> 
-            <a href="#scroll-notify-view" onclick="externalLoad();" class="mdl-layout__tab">Notify</a>  
+            <a href="#scroll-notify-view" onclick="externalLoad();" class="mdl-layout__tab">Messages</a>  
+            <a href="#scroll-tab-board" class="mdl-layout__tab">Tempo</a> 
+
 
         </div>
     </header>
@@ -671,7 +675,7 @@
         <section class="mdl-layout__tab-panel " id="scroll-notify-view" style="padding: 20px 5px; overflow:hidden !important;">
 
             <div id="externalLoad" class="page-content">
-                <h3>Collection with Avatar</h3>
+                <!--<h3>Collection with Avatar</h3>
                 <hr>
                 <ul class="collection">
                     <li class="collection-item avatar">
@@ -695,7 +699,7 @@
                     <li class="collection-item dismissable">JQuery</li>
                     <li class="collection-item dismissable">JavaScript</li>
                     <li class="collection-item dismissable">CSS</li>
-                </ul>
+                </ul>-->
             </div>
         </section>
         <!--

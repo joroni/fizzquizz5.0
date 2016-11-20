@@ -883,6 +883,23 @@ button.close {
 }
 
 
+ #avatar2 {
+    background-position: center center;
+    background-size: cover;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: inline-block;
+    height:40px;
+    left: auto;
+    color: transparent;
+    margin-bottom: 10px;
+    position: relative;
+    width: 40px;
+}
+
+
+
+
 #profile-content h3 span#fnames {
     float: left;
     width: 50%;
