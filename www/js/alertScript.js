@@ -57,6 +57,24 @@ document.querySelector('.sweet-notifications').onclick = function () {
 
 };
 
+document.querySelector('.sweet-message').onclick = function () {
+    $(this).removeClass('unread');
+    $(this).find($('a.mdl-list__item-secondary-action > i')).removeClass('new');
+
+    swal({
+            title: "Are you sure?",
+            text: "Bryan Cranston played the role of Walter in Breaking Bad. He is also known for playing Hal in Malcom in the Middle.",
+            type: "info",
+            showCancelButton: false,
+            confirmButtonClass: 'btn-info',
+           // confirmButtonText: 'Yes, delete it!',
+            closeOnConfirm: false
+            //closeOnCancel: false
+
+        });
+
+
+};
 
 
 
@@ -80,7 +98,7 @@ document.querySelector('.sweet-4').onclick = function () {
             showCancelButton: true,
             confirmButtonClass: 'btn-danger',
             confirmButtonText: 'Yes, delete it!',
-            closeOnConfirm: false,
+            closeOnConfirm: false
             //closeOnCancel: false
         },
         function () {

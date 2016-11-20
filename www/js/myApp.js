@@ -209,6 +209,11 @@ $(function() {
 
 });
 
+/*
+$(".sweet-message").on('click', function() {
+    $(this).removeClass('unread');
+});
+*/
 
 
 function openLeaderBoard() {
@@ -235,3 +240,5 @@ function openDrawer() {
 
 
 }
+
+

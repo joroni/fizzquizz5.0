@@ -1181,10 +1181,25 @@ nav span.mdl-layout-title {
     margin-top: 30px;
 }
 
-ul > li.mdl-list__item.mdl-list__item--three-line.unread > span.mdl-list__item-primary-content > span.mdl-list__item-text-body,
-ul.notification-list-three li.unread {
+ul > li.mdl-list__item.mdl-list__item--three-line > a.unread > span.mdl-list__item-primary-content > span.mdl-list__item-text-body,
+ul.notification-list-three li a.unread {
     font-weight: bold;
     color: rgba(0,0,0,.95);
+}
+
+
+
+span.mdl-list__item-text-body {
+    overflow: hidden;
+}
+.mdl-list__item-secondary-action {
+    display: none;
+}
+.mdl-list__item--three-line .mdl-list__item-primary-content {
+    height: 55px;
+    margin-top: 24px !important;
+    line-height: 20px !important;
+    display: block;
 }
 
 ul > li.mdl-list__item.mdl-list__item--three-line.unread > span.mdl-list__item-secondary-content > a > i {
@@ -1193,7 +1208,14 @@ ul > li.mdl-list__item.mdl-list__item--three-line.unread > span.mdl-list__item-s
 
 
 
-
+body > div.mdl-layout__container > div > div.mdl-layout__drawer > span.mdl-layout-title {
+    background: url(../img/coke-watermark2.png) no-repeat scroll center center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    height: 100px;
+}
 /********** video ************/
 
 object {

@@ -173,9 +173,9 @@
 
 
     <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">
-            <a  onclick="closeDrawer();" href="#">Notifications</a>
-         <i class="fa fa-chevron-left" onclick="closeDrawer();"></i>
+        <span class="mdl-layout-title" onclick="closeDrawer();" style="width: 100%;">
+           <!-- <span><a   href="#">Notifications</a></span>-->
+        <!-- <i class="fa fa-chevron-left" onclick="closeDrawer();"></i>-->
         </span>
 
 
@@ -189,7 +189,8 @@
             </style>-->
 
             <ul class="notification-list-three mdl-list">
-                <li class="mdl-list__item mdl-list__item--three-line unread">
+                <li class="mdl-list__item mdl-list__item--three-line">
+<a href="#" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-message']);" class="sweet-message unread">
                         <span class="mdl-list__item-primary-content">
                           <i class="material-icons mdl-list__item-avatar">person</i>
                           <span>Fizz Quizz</span>
@@ -201,6 +202,7 @@
                         <span class="mdl-list__item-secondary-content">
                           <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons star new">star</i></a>
                         </span>
+    </a>
                 </li>
                 <li class="mdl-list__item mdl-list__item--three-line">
                         <span class="mdl-list__item-primary-content">
