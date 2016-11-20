@@ -211,7 +211,15 @@ $(function() {
 
 
 
+function openLeaderBoard() {
+window.open('http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/admins/mobile_controllers/user_result.php','_blank','location=no','closebuttoncaption=Return')
+}
 
+
+function externalLoad() {
+    loaderSpinMini();
+    $("#externalLoad").html('<object style="width:100%; height: 100%;" data="video-playlist.html"/>');
+}
 
 function closeDrawer() {
     $('.mdl-layout__drawer').removeClass('is-visible');
