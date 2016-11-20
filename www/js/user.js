@@ -214,7 +214,8 @@ function update_cancel() {
 }
 
 function update_user() {
-    $('#loader-mini').show();
+    loaderSpinMini();
+   // $('#loader-mini').show();
     // var id = $('#user_id').val();
     var username = $('#username').val();
     var password = $('#password').val();

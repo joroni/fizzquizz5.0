@@ -215,11 +215,15 @@ $(function() {
 
 function closeDrawer() {
     $('.mdl-layout__drawer').removeClass('is-visible');
+    $('.mdl-layout__obfuscator').hide();
+
 
 }
 
 
 function openDrawer() {
     $('.mdl-layout__drawer').addClass('is-visible');
+    $('.mdl-layout__obfuscator').show();
+
 
 }
