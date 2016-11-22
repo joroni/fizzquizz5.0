@@ -230,6 +230,12 @@ main#fizzquizz, .mdl-layout.mdl-js-layout.mdl-layout--fixed-header.mdl-layout--f
 
 }
 
+
+body.index-page .mdl-layout__content {
+    background-color: #f8f8f8 !important;
+    background-image: none !important;
+}
+
 .mdl-layout__content {
     background: url(../img/bubbles.gif) #f8f8f8 no-repeat !important;
     background-size: cover !important;
@@ -1236,6 +1242,62 @@ body > div.mdl-layout__container > div > div.mdl-layout__drawer > span.mdl-layou
 /********** video ************/
 
 object {
+    width:100%;
+    height:100%;
+    overflow: hidden;
+}
+#player video {
     width: 100%;
-    height: 100%;
+    height: 220px;
+    padding: 0;
+    background: #000;
+    margin: 0;
+}
+
+#player {
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 0;
+}
+
+
+#playlist a {
+    color: #ddd;
+    background: #000000;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255, 0.25) !important;
+    font-size: 12px;
+}
+
+#playlist a.selected, #playlist a:active {
+    color: #fff !important;
+    background: red !important;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255, 0.25) !important;
+    font-size: 12px;
+}
+
+#playlist {
+    background: #333;
+    list-style: none;
+    padding: 0;
+    max-height: 360px;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+
+#playlist h1,  #playlist h2 {font-family:"Roboto", sans-serif; color:#FFF; font-weight:500;padding:10px;margin:0;}
+
+
+#pop-alert {
+    box-shadow: 0 0 104px rgba(0,0,0,0.5);
 }

@@ -56,7 +56,7 @@ document.querySelector('.sweet-notifications').onclick = function () {
   //  swal(data);
 
 //};
-
+/*
 document.querySelector('.sweet-message').onclick = function () {
     $(this).removeClass('unread');
     $(this).find($('a.mdl-list__item-secondary-action > i')).removeClass('new');
@@ -76,7 +76,7 @@ document.querySelector('.sweet-message').onclick = function () {
 
 };
 
-
+*/
 
 document.querySelector('.sweet-1').onclick = function () {
     swal("Here's a message!");

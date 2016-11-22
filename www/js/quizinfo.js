@@ -102,9 +102,11 @@ function getInitQuizData() {
             $('#getStarted2').html('<p>See you on the next round...</p>');
 
 
+
         } else {
             console.log('Ok really first time');
             $('#getStarted2').removeAttr('disabled', 'disabled');
+            $('#pop-alert').show();
         }
     });
 
