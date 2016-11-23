@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bcc3f4d8-fbec-4965-baaa-d69a41eb1c54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/profile.html" afterPath="$PROJECT_DIR$/www/profile.html" />
-    </list>
+    <list default="true" id="bcc3f4d8-fbec-4965-baaa-d69a41eb1c54" name="Default" comment="" />
     <ignored path="fizzquizz5.0.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="profile.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="115" column="6" selection-start-line="115" selection-start-column="6" selection-end-line="115" selection-end-column="6" />
+            <state relative-caret-position="165">
+              <caret line="122" column="54" selection-start-line="0" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -102,7 +100,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57">
@@ -375,7 +373,7 @@
       <workItem from="1479796593820" duration="19183000" />
       <workItem from="1479848682007" duration="3555000" />
       <workItem from="1479859461692" duration="5142000" />
-      <workItem from="1479939246037" duration="1086000" />
+      <workItem from="1479939246037" duration="1153000" />
     </task>
     <task id="LOCAL-00001" summary="ok">
       <created>1479666304109</created>
@@ -388,7 +386,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57552000" />
+    <option name="totallyTimeSpent" value="57619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="724" extended-state="6" />
@@ -964,24 +962,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="115" column="6" selection-start-line="115" selection-start-column="6" selection-end-line="115" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
             <marker date="1479922580000" expanded="true" signature="2835:2870" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="122" column="54" selection-start-line="0" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
