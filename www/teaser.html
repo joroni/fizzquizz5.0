@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,maximum-scale=1.0,initial-scale=1.0" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <!-- ISO-8859-1 -->
+
+    <style>
+        body {
+            background: #000 none repeat scroll 0 0;
+        }
+
+        .media-container {
+            height: 100%;
+            margin: 0 auto;
+            position: absolute;
+            width: 100%;
+        }
+
+        button {
+            background: #000 none repeat scroll 0 0;
+            border: 1px solid #d10000;
+            border-radius: 2px;
+            color: #d10000;
+            height: 30px;
+            text-transform: uppercase;
+            width: auto;
+        }
+        body.message {
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+        .controllers {
+            margin: 0 auto;
+            position: relative;
+            text-align: center;
+            top: -18%;
+            width: 300px;
+        }
+        video#player {
+            height: 100%;
+            margin: auto;
+            max-width: 100%;
+            min-width: 100%;
+            position: relative;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <title>FizzQuizz Media Player</title>
+</head>
+<body>
+<span class="media-container">
+    <div id="externalLoad"></div>
+
+</span>
+<script>
+    document.getElementById('player').play();
+</script>
+
+<script>
+    $(document).ready(function(){
+
+
+        $.post( "http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/getvideo/single")
+                .done(function( data ) {
+                    $('#externalLoad').html(data);
+                });
+
+
+    });
+
+
+
+
+</script>
+</body>
+</html>

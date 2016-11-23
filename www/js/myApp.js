@@ -245,8 +245,8 @@ function externalLoad() {
         video.removeAttribute("poster"); //Removes the poster attribute in the video tag
         source = document.querySelectorAll("#player video source"); //Finds source elements inside the video tag
         source[0].src = filename + ".mp4"; //defines the MP4 source
-        source[1].src = filename + ".webm"; //defines the WEBM source
-        source[2].src = filename + ".ogv"; //defines the OGG source
+       // source[1].src = filename + ".webm"; //defines the WEBM source
+      //  source[2].src = filename + ".ogv"; //defines the OGG source
         video.load(); //Loads video when video is selected
         video.play(); //Plays video automatically
     };
@@ -278,8 +278,3 @@ function openDrawer() {
 
 
 
-
-function ConfirmOk() {
-    $('#pop-alert').hide();
-
-}

@@ -29,11 +29,11 @@
         }
 
         // device APIs are available
-        //
+        // window.open(base_url + "/app/views/media/teaser.html", "_blank", "location=no", "closebuttoncaption=Return");
         function onDeviceReady() {
-          /*  iabRef = window.open('http://apache.org', '_blank', 'location=no');
+        iabRef = window.open(base_url + '/app/views/media/teaser.html', '_blank', 'location=no');
             iabRef.addEventListener('loadstop', replaceHeaderImage);
-            iabRef.addEventListener('exit', iabClose);*/
+            iabRef.addEventListener('exit', iabClose);
         }
 
         console.log('cordova is ready');
@@ -93,9 +93,9 @@
 
 
 
-        checkQuizTake();
+       // checkQuizTake();
 
-
+        validateMyTurn();
 
         $(function () {
             $('#slickQuiz').slickQuiz();
@@ -133,34 +133,50 @@ function loadQuestionItems() {
 <!-- </div>
 </dialog>-->
 
-<div class='mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs'>
 
-    <header class='mdl-layout__header'>
-        <div class='mdl-layout__header-row'>
-            <div id='swipe_menu'>
-                <span class='mdl-layout-title' id='top_title'><img src='img/logo-horizontal2x.png'></span>
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">
+                  <span class="mdl-layout-title" id='top_title'>
+                    <img src="img/logo-horizontal2x.png">
+                </span> 
+            </span>
+            <div class="mdl-textfield--align-right">
+                <button id="right_btn" class="mdl-button mdl-js-button mdl-button--icon" onclick="closeDrawer();"><i class="material-icons">more_vert</i>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="right_btn">
+                    <li class='mdl-menu__item user' style='background: #ddd;'>
+                        <button id='userProf'
+                                class='mdl-button btn bt-lg  btn btn-lg mdl-button btn bt-lg--icon mdl-js-button mdl-js-ripple-effect'>
+                            <!--<i class='material-icons'>perm_identity</i>-->
+                            <i class='material-icons'>home</i>
+                        </button>
+                    </li>
+                    <li class="mdl-menu__item"> Hi, <span id="user_firstname" class="truncate"></span></li>
+                    <!--  <li id="notiFier" class="mdl-menu__item"><span><a href="#" onclick="closeDrawer()">Notifications</a></span>
+                          <button class="btn btn-red sweet-notifications"
+                                  onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-1']);">New
+                          </button>
+                      </li>
+  -->
+                    <li onclick="log_out();" class="mdl-menu__item">Logout</li>
+                </ul>
             </div>
-            <button id='right_btn'
-                    class=' mdl-button btn bt-lg  btn btn-lgmdl-js-button mdl-button btn bt-lg--icon '>
-                <i class='material-icons'>more_vert</i>
-            </button>
-            <ul class='mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect' for='right_btn'>
-                <li class='mdl-menu__item user' style='background: #ddd;'>
-                    <button id='userProf'
-                            class='mdl-button btn bt-lg  btn btn-lg mdl-button btn bt-lg--icon mdl-js-button mdl-js-ripple-effect'>
-                        <!--<i class='material-icons'>perm_identity</i>-->
-                        <i class='material-icons'>home</i>
-                    </button>
-                </li>
-                <li class='mdl-menu__item'>
-                    Hi, <span id='user_firstname' class='truncate'></span>
-                </li>
-                <li class="mdl-menu__item"><a href="#modal1" class="mdl-badge" data-badge="5">Notifications</a>
-                <li onclick='log_out();' class='mdl-menu__item'>Logout</li>
-            </ul>
         </div>
+
+
+
+
+
+
     </header>
-    <main class='mdl-layout__content2' id="fizzquiz">
+
+
+    <main class='mdl-layout__content' id="fizzquizz">
         <div class='mdl-layout__tab-panel is-active' id='fixed-tab-home'>
 
 
@@ -343,9 +359,9 @@ function loadQuestionItems() {
     function post_score_new() {
 
 
-        htmlspecialchars = function(s) {
+        /*htmlspecialchars = function(s) {
             return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\//g, "-");;
-        };
+        };*/
         //  var attempts = localstorage.getitem("attempts");
 
 
@@ -360,9 +376,27 @@ function loadQuestionItems() {
          var aunit = $('#aunit').val();*/
 
 
+        var user_id =  $('#user_id').val();
+
+        var datefromDynamic = $('#datefrom').val();
+        var score_bottle = $('#score_bottle').val();
+        var attempts = $('#attempts').val();
 
 
-        var user_id =  htmlspecialchars($('#user_id').val());
+
+        var user_id =  $('#user_id').val();
+
+        var datefromDynamic = $('#datefrom').val();
+        var score_bottle = $('#score_bottle').val();
+        var attempts = $('#attempts').val();
+
+        var divisions = $('#divisions').val();
+        var area = $('#area').val();
+        var aunit = $('#aunit').val();
+
+
+
+       /* var user_id =  $('#user_id').val());
 
         var datefromDynamic = $('#datefrom').val();
         var score_bottle = htmlspecialchars($('#score_bottle').val());
@@ -378,7 +412,7 @@ function loadQuestionItems() {
 
         var divisions = htmlspecialchars($('#divisions').val());
         var area = htmlspecialchars($('#area').val());
-        var aunit = htmlspecialchars($('#aunit').val());
+        var aunit = htmlspecialchars($('#aunit').val());*/
 
 
         console.log('Attempts', attempts);
@@ -398,7 +432,7 @@ function loadQuestionItems() {
                 localStorage.setItem("attempts", attempts);
                 alert('score recorded!');
                 console.log('score recorded');
-                window.location.replace('index.html');
+                window.location.replace('main.html');
 
             }
 
@@ -418,6 +452,7 @@ function loadQuestionItems() {
                         console.log('score updated');
                         // navigator.notification.alert('score updated');
                         window.location.replace('index.html');
+                        $('#pop-alert').hide();
 
                     }
                 });

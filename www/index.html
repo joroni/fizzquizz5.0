@@ -1,6 +1,6 @@
 <html>
 <head>
-    <!-- Material Design Lite -->
+
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <link href="images/icon/ios/icon.png" rel="apple-touch-icon" />
     <link href="images/icon/ios/icon-72.png" rel="apple-touch-icon" sizes="72x72" />
@@ -9,30 +9,16 @@
     <link href="images/icon/ios/icon.png" rel="icon" sizes="128x128" />
     <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <link rel="stylesheet" href="css/material.red-purple.min.css"/>
-    <!-- Material Design icon font -->
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href='css/media.css' media='screen' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/material-modal.css">
     <link rel="stylesheet" href="css/index.css">
-    <!--<script src="js/material.min.js"></script>
-       <link rel="stylesheet" href="css/material.pink-purple.min.css" />-->
-    <!-- Material Design icon font -->
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link rel="stylesheet" href="css/custom.css" type="text/css">
     <link rel="stylesheet" href="css/animate.css" type="text/css">
-    <!--<script src="https://code.jquery.com/jquery-3.1.0.min.js"
-          integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>-->
-    <script src="js/jquery-3.1.0.min.js"></script>
-    <script>
-        var encodedString = "&lt;p&gt;name&lt;/p&gt;&lt;p&gt;&lt;span style=\"font-size:xx-small;\"&gt;ajde&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;da&lt;/em&gt;&lt;/p&gt;";
-    </script>
-    <script type="text/javascript" src="js/jquery.validate.js"></script>
-    <script src="js/jquery.touchSwipe.min.js"></script>
-    <!-- Material Design Lite -->
-
-
     <script src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
@@ -59,11 +45,23 @@
                     }
             );
 
-
+            htmlspecialchars = function(s) {
+                return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\//g, "-");;
+            };
 
         }
 
     </script>
+
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <!--<script>
+        var encodedString = "&lt;p&gt;name&lt;/p&gt;&lt;p&gt;&lt;span style=\"font-size:xx-small;\"&gt;ajde&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;da&lt;/em&gt;&lt;/p&gt;";
+    </script>-->
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+
+
+
 
     <script>
 
@@ -80,15 +78,9 @@
                 $.each(results, function ( i, fields ) {
 
                     $("#output").append("<tr><td><label>Set</label></td><td> " + fields.datefrom + " </td><td><label>Score</label></td><td>" + fields.score_bottle + "</td></tr>");
-                    //$('#user_id').text(field.id);
-                    //    console.log(field.attempts);
-                    //  console.log(field.datefrom);
-                    //  console.log(field.score_bottle);
+
                     $("#output2").append("<li> " + fields.datefrom + " </li>");
-                    //$('#user_id').text(field.id);
-                    //    console.log(field.attempts);
-                    //  console.log(field.datefrom);
-                    //  console.log(field.score_bottle);
+
                     var checkLQuiz = $("#output2 li:nth-child(1)").text();
                     console.log("checkLQuiz", checkLQuiz);
                     localStorage.setItem('checkLQuiz', checkLQuiz);
@@ -103,9 +95,7 @@
     <script src="js/all.js"></script>
     <script src="js/myApp.js"></script>
 </head>
-<!--div class="splash" style='align:center; position: fixed; z-index: 9999; width: 100%; background-color: black; height: 100%;'>
-   <center><img style='margin-top:200px;' src="images/ajax.gif" alt="splash" /></center>
-   </div-->
+
 <body class="index-page" onload="onLoad();">
 <div id="loader">
     <div class="mdl-spinner mdl-js-spinner is-active"></div>
@@ -126,7 +116,7 @@
     <main class="mdl-layout__content">
         <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
             <div class="page-content">
-                <Br>
+
                 <div style='clear:both;'></div>
                 <center>
                     <div class="typo-styles__demo mdl-typography--display-1"><img src="img/logo-red2x.png" style="width: 80px; border-radius: 10px;"> </div>
@@ -160,7 +150,7 @@
 
         <section class="mdl-layout__tab-panel" id="fixed-tab-2">
             <div class="page-content">
-                <Br>
+
                 <div style='clear:both;'></div>
                 <!--  <div class="typo-styles__demo mdl-typography--display-1">Register</div> -->
                 <form id="signupForm" method="post" class="form-horizontal" action="">
@@ -245,19 +235,9 @@
 
             </div>
         </section>
-        </section>
-    </main>
-    <!--<footer class="mdl-mega-footer">
-       <div class="mdl-mega-footer__middle-section">
-       <div class="mdl-mini-footer__left-section">
 
-         <ul class="mdl-mini-footer__link-list">
-           <li><a href="#">Help</a></li>
-           <li><a href="#">Privacy & Terms</a></li>
-         </ul>
-       </div>
-       </div>
-       </footer>-->
+    </main>
+
 </div>
 
 

@@ -8,10 +8,6 @@ function log_out() {
 var base_url = "http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver";
 
 
-
-
-
-
 $(function () {
     var user = localStorage.getItem('userlogin');
 
@@ -87,15 +83,12 @@ $(function () {
             console.log(field.avatar);
 
 
-
-
-
             localStorage.setItem('user_id', field.id);
             localStorage.setItem('user_division', field.division);
             localStorage.setItem('user_area', field.area);
             localStorage.setItem('user_aunit', field.aunit);
             // console.log(field.lang);
-           // get_Quiz_History();
+            // get_Quiz_History();
 
             var myDivision = localStorage.getItem("user_division");
             var str = myDivision.replace(/\s/g, '');
@@ -110,11 +103,11 @@ $(function () {
             var quizlink = localStorage.getItem('fizzquizz');
 
 
-            $('#getStarted2').on('click', function (e) {
+            $('#getStarted2').on('click', function ( e ) {
                 e.preventDefault();
-               // var checkLQuiz = localStorage.getItem('fizzquizz');
+                // var checkLQuiz = localStorage.getItem('fizzquizz');
 
-               // window.location.replace(fizzquizz);
+                // window.location.replace(fizzquizz);
                 window.location.replace('fizzquizzData.html');
                 console.log('Confirm my FizzQuizz link:', fizzquizz);
 
@@ -122,16 +115,9 @@ $(function () {
             });
 
 
-
-
-
-
         });
     });
 });
-
-
-
 
 
 function myProfile() {
@@ -201,23 +187,20 @@ function myProfile() {
             console.log(field.avatar);
 
 
-
         });
     });
 }
 
 
-
-
-
 function update_cancel() {
+    loaderSpinMini();
     $('#profileContent').show();
     $('#editmyProfile').hide();
 }
 
 function update_user() {
     loaderSpinMini();
-   // $('#loader-mini').show();
+    // $('#loader-mini').show();
     // var id = $('#user_id').val();
     var username = $('#username').val();
     var password = $('#password').val();
@@ -327,7 +310,7 @@ function imageProfile() {
         console.log(responseText);
         if (statusText == 'success') {
             // $('#page_loader_cb').fadeOut(100);
-
+            loaderSpinMini();
             $('#upload_input').val('');
 
             //  $('#upload_input').val('');
@@ -343,7 +326,7 @@ function imageProfile() {
                 //   navigator.notification.alert('Process complete');
                 window.alert('Process complete');
                 //$('#capturePhoto').hide();
-                window.location.reload();
+                window.location.replace('index.html');
 
 
             }
@@ -351,13 +334,6 @@ function imageProfile() {
     }
 
 }
-
-
-
-
-
-
-
 
 
 /*
