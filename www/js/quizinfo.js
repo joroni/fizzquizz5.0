@@ -54,6 +54,20 @@ function myFunction() {
 }
 
 
+
+function delayAlertShow() {
+    setTimeout(function () {
+        $('#pop-alert').show();
+        $('#getStarted2').show();
+        $('#getStarted2').removeAttr('disabled', 'disabled');
+    }, 10000);
+    $('#getStarted2').attr('disabled', 'disabled');
+    $('#getStarted2').html('LOADING PROFILE...');
+
+
+
+}
+
 /*********** RUN ONLY ONCE JUST TO GET THE DATE FROM LAST ROW ON THE TABLE ****************/
 function validateMyTurn() {
     //getInitQuizData
@@ -71,35 +85,46 @@ function validateMyTurn() {
         var checkLastQuiz = localStorage.getItem('checkLQuiz');
         if (dateFrStringVerify === checkLastQuiz) {
             $('#pop-alert').hide();
+            loaderSpinMini();
             alertCalculating();
             console.log('Already took');
             $('#getStarted2').attr('disabled', 'disabled');
             $('#getStarted2').html('<p>See you on the next round...</p>');
 
         } else {
+           loaderSpinMini();
             alertCalculatingNewSet();
             console.log('Ok really first time');
             $('#getStarted2').html('<p>PLAY!</p>');
             $('#getStarted2').removeAttr('disabled', 'disabled');
-            $('#pop-alert').show();
+            delayAlertShow();
+           // $('#pop-alert').show();
 
         }
 
 
         function alertCalculating(){
 
+            setTimeout(function () {
+
+
+
             $('.sweet-alert .sa.sa-custom').css('display', 'inline-block');
             $('.sweet-alert .sa-icon.sa-success').hide();
 
             $('.sweet-alert h2').html('checking');
             $('.sweet-alert .sa-confirm-button-container').hide();
+
+
+
+            }, 3000);
         }
 
 
 
 
         function alertCalculatingNewSet(){
-
+            delayAlertShow();
             $('.sweet-alert .sa.sa-custom').css('display', 'inline-block');
 
             $('.sweet-alert .sa-icon.sa-success').show();
