@@ -32,8 +32,8 @@
         // window.open(base_url + "/app/views/media/teaser.html", "_blank", "location=no", "closebuttoncaption=Return");
         function onDeviceReady() {
         iabRef = window.open(base_url + '/app/views/media/teaser.html', '_blank', 'location=no');
-            iabRef.addEventListener('loadstop', replaceHeaderImage);
-            iabRef.addEventListener('exit', iabClose);
+          //  iabRef.addEventListener('loadstop', replaceHeaderImage);
+          //  iabRef.addEventListener('exit', iabClose);
         }
 
         console.log('cordova is ready');
@@ -141,7 +141,7 @@ function loadQuestionItems() {
         <div class="mdl-layout__header-row">
             <!-- Title -->
             <span class="mdl-layout-title">
-                  <span class="mdl-layout-title" id='top_title'>
+  <span class="mdl-layout-title" id='top_title'>
                     <img src="img/logo-horizontal2x.png">
                 </span> 
             </span>
