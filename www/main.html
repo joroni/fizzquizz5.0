@@ -15,7 +15,7 @@
     <link href='css/media.css' media='screen' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link rel="stylesheet" href="css/animate.css" type="text/css">
     <link rel="stylesheet" href="css/rays.css" type="text/css">
     <link rel="stylesheet" href="css/table-sorter/tablesorter.css" type="text/css">
@@ -49,15 +49,16 @@
                         }
                     }
             );
+            validateMyTurn();
 
-            setTimeout(function () {
+          /* setTimeout(function () {
                 //  $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
-                //loaderSpinMini();
+                loaderSpinMini();
 
                 validateMyTurn();
 
 
-            }, 3000);
+            }, 3000);*/
         }
     </script>
 
@@ -72,7 +73,7 @@
     <!--<script charset="utf-8" src="https://cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>-->
     <script charset="utf-8" src="js/jquery.dataTables.js"></script>
     <script charset="utf-8" src="https://cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.min.js"></script>
-    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="js/jquery.form.js"></script>
     <script type="text/javascript" charset="utf-8">
 
 
@@ -82,13 +83,14 @@
             setTimeout(myFunctionLoading, 3000);
 
             function myFunctionLoading() {
-                $('#loader-mini').show();
+                //$('#loader-mini').show();
+                  loaderSpinMini();
                 $('#raysLogo').append('<span>Loading Quiz Data</span>');
               //  get_Last_Quiz_Record();
                 //getQuizData();
                 //get_Quiz_History();
 
-                validateMyTurn();
+              //  validateMyTurn();
 
                 setTimeout(myFunctionLoadingOut, 3000);
                 function myFunctionLoadingOut() {
@@ -147,7 +149,7 @@
 		</span>
     </div>
     <div class="sa-button-container">
-        <button class="cancel btn btn-lg btn-default" tabindex="2" style="display: none;">Cancel</button>
+      <button class="cancel btn btn-lg btn-default" tabindex="2" onclick="popClose();" style="display:inline-block;">Cancel</button>
         <div class="sa-confirm-button-container">
             <button class="confirm btn btn-lg btn-primary" onclick="ConfirmOk();" tabindex="1" style="display: inline-block;">Play!</button>
             <div class="la-ball-fall">
@@ -202,7 +204,7 @@
 
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
 
-            <a href="#fixed-tab-home" class="mdl-layout__tab is-active muidocs-icon-action-home">Home</a>
+            <a href="#fixed-tab-home" onclick="validateMyTurn();" class="mdl-layout__tab is-active muidocs-icon-action-home">Home</a>
             <a href="#fixed-tab-profile" onclick="get_Quiz_History();" class="mdl-layout__tab">Profile</a> 
             <a href="#fixed-tab-profile" onclick="openLeaderBoard();" class="mdl-layout__tab">Leader  Board</a> 
             <a href="#fixed-tab-notify-view" onclick="externalLoad();" class="mdl-layout__tab">Videos</a>  
@@ -645,6 +647,8 @@
                 .done(function( data ) {
                     $('#externalLoad').html(data);
                 });
+
+
 
 
     });

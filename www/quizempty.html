@@ -19,17 +19,12 @@
     <link rel="stylesheet" href="css/rays.css" type="text/css">
     <link rel="stylesheet" href="css/table-sorter/tablesorter.css" type="text/css">
 
-    <link href="sweetalert/docs.css" rel="stylesheet">
-    <link rel="stylesheet" href="sweetalert/sweetalert.css">
-
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script src="js/material.min.js"></script>
-
-
-      <script src="js/quizinfo.js"></script>
+    <link href="sweetalert/docs.css" rel="stylesheet">
     <script src="sweetalert/sweetalert.js"></script>
-  
+    <link rel="stylesheet" href="sweetalert/sweetalert.css">
     <style>
         /* boooo opera */
         -o-transition:rotate(3600 deg);
@@ -58,29 +53,36 @@
     </style>
     <script src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
+      localStorage.setItem('noQuizAlert', 1);
         function onLoad() {
 
-            pullFreshQuizItems();
-            get_last_quiz_row();
-            get_Quiz_History();
             document.addEventListener("deviceready", onDeviceReady, false);
+
 
         }
 
         // cordova is ready
         //
         function onDeviceReady() {
-            noNet(base_url + '/json.php',
-                    function ( data ) {
-                        for (i = 0; i < data.length; i++) {
-                            //document.getElementById("result1").innerHTML += '<li> ' + data[i]['name'] + '</li>';
-                            console.log(data[i]['name']);
-                        }
-                    }
-            );
 
 
-            loadQuizDetails();
+
+                  function alertQuizNoContent(){
+
+                      $('.sweet-alert .sa.sa-custom').css('display', 'none');
+                      $('.sweet-alert .sa-icon.sa.sa-error').css('display', 'inline-block');
+
+                      $('.sweet-alert .sa-icon.sa-success').hide();
+
+                      $('.sweet-alert h2').html('No Quiz Yet.');
+                      $('.sweet-alert .sa-confirm-button-container').hide();
+                      $('.sweet-alert .cancel').show();
+                      $('button.cancel').val('OK');
+
+                  }
+
+alertQuizNoContent();
+
           /*
             setTimeout(function () {
                 //  $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
@@ -89,43 +91,20 @@
                 loadQuizDetails();
             });*/
         }
-    </script>
-
-    <script src="js/all.js"></script>
-    <script src="js/myApp.js"></script>
-    <script src="js/user.js"></script>
-    <script src="js/quizinfo.js"></script>
-
-    <script type="text/javascript" charset="utf-8">
-        function loadQuizDetails() {
-
-            setTimeout(myFunctionLoading, 4000);
-
-            function myFunctionLoading() {
-                $('#loader-mini').show();
-                $('#raysLogo').append('<span>Loading Quiz Data</span>');
-                get_last_quiz_row();
-                pullFreshQuizItems();
-                get_Quiz_History();
-                validateMyTurn();
-
-                setTimeout(myFunctionLoadingOut, 3000);
-                function myFunctionLoadingOut() {
-                    $('#loader-mini').hide();
-                }
-            }
 
 
-            function uploadingImg() {
-                $('#loader-mini').show();
-                setTimeout(myFunction, 3000);
+        function goto_home() {
+          $('#pop-alert').hide();
 
-            }
+            window.location.replace('main.html');
         }
 
     </script>
+    <script src="js/user.js"></script>
+    <script src="js/quizinfo.js"></script>
+
 </head>
-<body id="profile" onload="onLoad()">
+<body id="noquiz" onload="onLoad()">
 <div id="loader" style="display: none;">
     <div class="mdl-spinner mdl-js-spinner is-active"></div>
 </div>
@@ -134,8 +113,8 @@
 </div>
 <div id="pop-alert" class="sweet-alert" tabindex="-1" data-custom-class="" data-has-cancel-button="true"
      data-has-confirm-button="true" data-allow-outside-click="false" data-has-done-function="false" data-animation="pop"
-     data-timer="null" style="display: none;">
-    <div class="sa-icon sa-error" style="display: none;">
+     data-timer="null" style="display: block;">
+    <div class="sa-icon sa-error" style="display: block;">
 				<span class="sa-x-mark">
 				<span class="sa-line sa-left"></span>
 				<span class="sa-line sa-right"></span>
@@ -153,7 +132,7 @@
         <div class="sa-placeholder"></div>
         <div class="sa-fix"></div>
     </div>-->
-    <div class="sa-icon sa-custom" style="display: inline-block;"></div>
+    <div class="sa-icon sa-custom" style="display: none;"></div>
     <h2>New set of questions available!</h2>
     <p class="lead text-muted " style="display: none;">You will not be able to recover this imaginary file!</p>
     <div class="form-group">
@@ -163,10 +142,10 @@
 				</span>
     </div>
     <div class="sa-button-container">
-        <button class="cancel btn btn-lg btn-default" tabindex="2" style="display: none;">Cancel</button>
+        <button class="cancel btn btn-lg btn-default" tabindex="2" style="display:inline-block;">Cancel</button>
         <div class="sa-confirm-button-container">
-            <button class="confirm btn btn-lg btn-primary" onclick="ConfirmOk();" tabindex="1"
-                    style="display: inline-block;">Play!
+            <button class="confirm btn btn-lg btn-primary" onclick="goto_home();" tabindex="1"
+                    style="display: none;">Home
             </button>
             <div class="la-ball-fall">
                 <div></div>
@@ -177,11 +156,11 @@
     </div>
 </div>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header ">
-    <header class="mdl-layout__header">
+    <header class="mdl-layout__header hidden">
         <div class="mdl-layout__header-row">
             <!-- Title -->
 					<span class="mdl-layout-title">
-  <span class="mdl-layout-title" id='top_title'>
+             <span class="mdl-layout-title" id='top_title'>
 					<img src="img/logo-horizontal2x.png">
 					</span> 
 					</span>
@@ -229,16 +208,10 @@
                             </div>-->
                     </li>
                     <li>
-                        <script>
-                            setTimeout(function () {
-                                validateMyTurn();
-                                $('#getStarted2').show();
-                            }, 6000);
 
-                        </script>
-                        <a href="#" id="getStarted2"
+                        <a href="#" id="getHome"
                            style="display: none; color: #d10000 !important; min-width: 100%; z-index: 100;"
-                           class="btn-text button btn btn-lg mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">...</a>
+                           class="btn-text button btn btn-lg mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Home</a>
                         <!-- <a href="quiz.html" target="_blank" location="no"
                             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                              Play
@@ -251,19 +224,6 @@
     </main>
 </div>
 <!--<script src="js/alertScript.js" type="text/javascript" charset="utf-8"></script>-->
-<!--<script>
-    $(document).ready(function () {
 
-
-        $.post("http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/getvideo")
-                .done(function ( data ) {
-                    $('#externalLoad').html(data);
-                });
-
-
-    });
-
-
-</script> -->
 </body>
 </html>

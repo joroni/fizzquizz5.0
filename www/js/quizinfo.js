@@ -2,6 +2,8 @@
 $('#pop-alert').hide();
 /*********** RUN ONLY ONCE JUST TO GET THE LATEST USER'S QUIZ RECORD IN A TABLE ****************/
 function get_Quiz_History() {
+
+loaderSpinMini();
     //$('#output').empty();
     var user_id = localStorage.getItem('user_id');
     $('#output').html('<th style="padding: 0 5px; background: silver;"><h5>Stats</h5></th><th style="padding: 0 5px; background: silver;"><h5>Score</h5></th>');
@@ -16,6 +18,8 @@ function get_Quiz_History() {
 
         });
     })
+
+
 }
 
 
@@ -64,9 +68,22 @@ function delayAlertShow() {
     $('#getStarted2').attr('disabled', 'disabled');
     $('#getStarted2').html('LOADING PROFILE...');
 
+}
 
+
+function homeInfoShow() {
+    setTimeout(function () {
+        $('#pop-alert').hide();
+        $('#getStarted2').show();
+        $('#getStarted2').removeAttr('disabled', 'disabled');
+    }, 10000);
+    $('#getStarted2').attr('disabled', 'disabled');
+    $('#getStarted2').html('See you on the next round...');
 
 }
+
+
+
 
 /*********** RUN ONLY ONCE JUST TO GET THE DATE FROM LAST ROW ON THE TABLE ****************/
 function validateMyTurn() {
@@ -91,6 +108,8 @@ function validateMyTurn() {
             $('#getStarted2').attr('disabled', 'disabled');
             $('#getStarted2').html('<p>See you on the next round...</p>');
 
+
+
         } else {
            loaderSpinMini();
             alertCalculatingNewSet();
@@ -103,22 +122,35 @@ function validateMyTurn() {
         }
 
 
-        function alertCalculating(){
-
-            setTimeout(function () {
 
 
 
-            $('.sweet-alert .sa.sa-custom').css('display', 'inline-block');
-            $('.sweet-alert .sa-icon.sa-success').hide();
-
-            $('.sweet-alert h2').html('checking');
-            $('.sweet-alert .sa-confirm-button-container').hide();
 
 
 
-            }, 3000);
-        }
+        function alertCalculating() {
+
+            setTimeout(myFunctionLoading2, 3000);
+
+            function myFunctionLoading2() {
+
+                          $('.sweet-alert .sa-icon.sa-custom').show();
+                          $('.sweet-alert .sa-icon.sa-success').hide();
+                          $('.sweet-alert .sa-icon.sa-error').hide();
+                          $('.sweet-alert h2').html('checking');
+                          $('.sweet-alert .sa-confirm-button-container').show();
+                        //  $('.sweet-alert .sa-confirm-button-container').show();
+
+
+                setTimeout(myFunctionLoadingOut2, 3000);
+                function myFunctionLoadingOut2() {
+
+                    $('#loader-mini').hide();
+                    $('.sweet-alert .sa-icon.sa-custom').hide();
+                    alertQuizNoContent();
+                }
+            }
+          }
 
 
 
@@ -133,6 +165,20 @@ function validateMyTurn() {
             $('.sweet-alert .sa-confirm-button-container').show();
         }
 
+
+
+                          function alertQuizNoContent(){
+
+                              $('.sweet-alert .sa.sa-custom').css('display', 'none');
+                              $('.sweet-alert .sa-icon.sa-error').show();
+                              $('.sweet-alert .sa-icon.sa-success').hide();
+
+                              $('.sweet-alert h2').html('No Quiz Yet.');
+                              $('.sweet-alert .sa-confirm-button-container').hide();
+        $('.sweet-alert .cancel').show();
+                              $('button.cancel').val('OK');
+
+                          }
         /*  getInitQuizData(); */
 
 
@@ -140,6 +186,19 @@ function validateMyTurn() {
 }
 
 
+function checkQuisExist(){
+        if(localStorage.getItem('noQuizAlert') == 1){
+          $('#pop-alert').hide();
+           loaderSpinMini();
+          //  alertQuizNoContent();
+
+            $('#getStarted2').attr('disabled', 'disabled');
+            $('#getStarted2').html('<p>See you on the next round...</p>');
+            delayAlertShow();
+            popClose();
+           // $('#pop-alert').show();
+}
+}
 /*********** GETTING THE QUESTIONS AND ANSWER SCRIPT  ****************/
 function pullFreshQuizItems() { //getQuizData
 
@@ -172,6 +231,36 @@ function goto_home() {
 }
 
 
+function popClose() {
+    $('#pop-alert').hide();
+}
+
+
+
+
+function checkIfQuiz() {
+
+//check kung my questions
+$.post( "http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/check_quiz_status/"+localStorage.getItem("user_id"))
+        .done(function( data ) {
+          if(data == 1) {
+            console.log('Quiz has contents');
+          }
+          else {
+
+            if(localStorage.getItem('noQuizAlert') == 1){
+
+
+            }else{
+
+                //$('#pop-alert').show();
+            window.location.replace('quizempty.html');
+          }
+          }
+      //    alert(data);
+});
+
+}
 
 //getQuizData();
 
@@ -208,16 +297,29 @@ function goto_home() {
 
  */
 
+ function loaderSpinMini() {
+
+     setTimeout(myFunctionLoading, 4000);
+
+     function myFunctionLoading() {
+       $('#loader-mini').hide();
+
+     }
+ $('#loader-mini').show();
+
+
+}
+
+
+
 
 $('#playQuiz').on('click', function () {
     $('#raysDemoHolder').hide();
 });
 
-
+checkQuisExist();
 get_last_quiz_row();
 pullFreshQuizItems();
 get_Quiz_History();
 validateMyTurn();
-
-
-
+  checkIfQuiz();
