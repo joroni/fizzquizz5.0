@@ -81,7 +81,7 @@ function validateMyTurn() {
             loaderSpinMini();
             alertCalculatingNewSet();
             console.log('Ok really first time');
-            $('#getStarted2').html('<p>PLAY!</p>');
+            $('#getStarted2').html('<span class="animated-icon"></span>');
             $('#getStarted2').removeAttr('disabled', 'disabled');
             $('#pop-alert').show();
 
@@ -115,6 +115,10 @@ function validateMyTurn() {
 
     });
 }
+
+
+
+
 
 
 /*********** GETTING THE QUESTIONS AND ANSWER SCRIPT  ****************/
