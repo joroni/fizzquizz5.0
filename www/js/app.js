@@ -65,7 +65,7 @@ check_storage();
 					localStorage.setItem("userlogin", user_name_input);
 					get_Quiz_History();
 					console.log("get_Quiz_History");
-					window.location.href = "profile.html";
+					window.location.href = "main.html";
 
 				}
 			});
@@ -142,7 +142,7 @@ function register(){
                     /**  2B  ********************* If signin/signup success, go to profile building ****************/
 
 
-					window.location.href = "profile.html";
+					window.location.href = "main.html";
 
 				}else {
 					alert(data);

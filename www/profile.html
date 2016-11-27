@@ -41,9 +41,9 @@
     <script type="text/javascript" charset="utf-8">
         function onLoad() {
 
-            pullFreshQuizItems();
-            get_last_quiz_row();
-            get_Quiz_History();
+          // pullfreshquizitems();
+            //get_last_quiz_row();
+            //get_Quiz_History();
             document.addEventListener("deviceready", onDeviceReady, false);
 
         }
@@ -80,17 +80,18 @@
     <script type="text/javascript" charset="utf-8">
         function loadQuizDetails() {
 
-            setTimeout(myFunctionLoading, 4000);
+            setTimeout(myFunctionLoading, 1000);
 
             function myFunctionLoading() {
                 $('#loader-mini').show();
                 $('#raysLogo').append('<span>Loading Quiz Data</span>');
-                get_last_quiz_row();
+
                 pullFreshQuizItems();
-                get_Quiz_History();
+                get_last_quiz_row();
+              //  get_quiz_history();
                 validateMyTurn();
 
-                setTimeout(myFunctionLoadingOut, 3000);
+                setTimeout(myFunctionLoadingOut, 1000);
                 function myFunctionLoadingOut() {
                     $('#loader-mini').hide();
                 }
@@ -99,7 +100,7 @@
 
             function uploadingImg() {
                 $('#loader-mini').show();
-                setTimeout(myFunction, 3000);
+                setTimeout(myFunction, 1000);
 
             }
         }
@@ -244,6 +245,9 @@
 
 
     });
+
+
+
 
 
 </script>
