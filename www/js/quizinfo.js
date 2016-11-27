@@ -75,7 +75,9 @@ function validateMyTurn() {
             alertCalculating();
             console.log('Already took');
             $('#getStarted2').attr('disabled', 'disabled');
-            $('#getStarted2').html('<p>See you on the next round...</p>');
+            $('#after_quiz').html('<p>See you on the next round...</p>');
+            $('#getStarted2').remove();
+          //  $('#getStarted2').css('background', 'none');
 
         } else {
             loaderSpinMini();
