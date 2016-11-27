@@ -25,6 +25,27 @@
     <link href="sweetalert/docs.css" rel="stylesheet">
     <script src="sweetalert/sweetalert.js"></script>
     <link rel="stylesheet" href="sweetalert/sweetalert.css">
+
+    <link href='css/elements.css' rel='stylesheet' type='text/css'>
+
+
+
+
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+
+    <script src="js/prefixfree.min.js"></script>
+
+
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+
+
+
     <style>
         /* boooo opera */
         -o-transition:rotate(3600 deg);
@@ -101,6 +122,12 @@
     </script>
 </head>
 <body onload="onLoad()">
+
+<div id='stars' class="star-anim"></div>
+<div id='stars2' class="star-anim"></div>
+<div id='stars3' class="star-anim"></div>
+
+
 <div id="loader" style="display: none;">
     <div class="mdl-spinner mdl-js-spinner is-active"></div>
 </div>
@@ -240,6 +267,7 @@
                            style="display: none; color: #d10000 !important; min-width: 100%; z-index: 100;"
                            class="btn-text button btn btn-lg mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Get
                             Started</a>
+                        <span id="after_quiz"></span>
                         <!-- <a href="quiz.html" target="_blank" location="no"
                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                             Play

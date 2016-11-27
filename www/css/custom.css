@@ -228,10 +228,10 @@ ul.center-list li {
 
 
 main#fizzquizz, .mdl-layout.mdl-js-layout.mdl-layout--fixed-header.mdl-layout--fixed-tabs.is-small-screen.is-upgraded, body#profile{
-    background: #d10000 !important;
-    background: url(../img/bubbles.gif) #f8f8f8 no-repeat !important;
+    background: #f8f8f8 !important;
+   /* background: url(../img/bubbles.gif) #f8f8f8 no-repeat !important;
     background-size: cover !important;
-
+*/
 }
 
 body#profile header.mdl-layout__header.is-casting-shadow {
@@ -243,8 +243,8 @@ body.index-page .mdl-layout__content {
 }
 
 .mdl-layout__content {
-    background: url(../img/bubbles.gif) #f8f8f8 no-repeat !important;
-    background-size: cover !important;
+  /*  background: url(../img/bubbles.gif) #f8f8f8 no-repeat !important;
+    background-size: cover !important;*/
 }
 
 
@@ -1321,6 +1321,11 @@ object {
 }
 
 
+#after_quiz {
+    color: rgb(209,0,0);
+    text-transform: uppercase;
+}
+
 #getStarted2 > p > i.extra {
     font-size: 3em !important;
     color: #00FF00;
@@ -1331,12 +1336,12 @@ object {
     -vendor-animation-iteration-count: infinite;
 }
 
-
-.animated-icon {
-    background: url(../img/envelope.gif) no-repeat scroll center -1px;
+a#getStarted2 {
+    background: url('img/newItem-icon.png') no-repeat scroll center center !important;
+    height: 100px !important;
     padding: 10px 25px;
-    background-size: cover;
-    overflow: visible !important;
-    height: 50px !important;
+    top: -25px;
+    background-size: contain !important;
+    /* height: 50px !important; */
     color: lime;
 }
