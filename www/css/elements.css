@@ -2,12 +2,14 @@
 /* CSS Document */
 .star-anim {
   position: fixed;
-  z-index: 1;
+  z-index: 0 !important;
 }
- html {
+ html, body {
   height: 100%;
-  background: radial-gradient(ellipse at bottom, #fff 0%, #d3d2d3 100%);
+  background: radial-gradient(ellipse at bottom, #fff 60%, #efefef 100%);
   overflow: hidden;
+background-image:  -webkit-gradient(         linear,         left top,         left bottom,         color-stop(0, #fff),         color-stop(0.51, #EFEFEF)     ) !important;;
+
 }
 
 #stars {
