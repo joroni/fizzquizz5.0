@@ -106,9 +106,10 @@ $(function () {
             $('#getStarted2').on('click', function ( e ) {
                 e.preventDefault();
                 // var checkLQuiz = localStorage.getItem('fizzquizz');
-
+                
                 // window.location.replace(fizzquizz);
-                window.location.replace('fizzquizzData.html');
+             //   window.location.replace('fizzquizzData.html');
+                window.location.replace('profile.html');
                 console.log('Confirm my FizzQuizz link:', fizzquizz);
 
 

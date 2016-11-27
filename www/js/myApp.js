@@ -23,7 +23,7 @@ $(document).ready(function () {
 function loaderSpin() {
 
     $('#loader').show();
-    setTimeout(myLoading, 3000);
+    setTimeout(myLoading, 7000);
 
     function myLoading() {
 
@@ -39,7 +39,7 @@ function loaderSpinMini() {
 
 
     $('#loader-mini').show();
-    setTimeout(myLoading, 3000);
+    setTimeout(myLoading, 7000);
 
     function myLoading() {
 

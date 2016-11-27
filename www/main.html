@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/animate.css" type="text/css">
     <link rel="stylesheet" href="css/rays.css" type="text/css">
     <link rel="stylesheet" href="css/table-sorter/tablesorter.css" type="text/css">
-
+    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">-->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <link href="sweetalert/docs.css" rel="stylesheet">
@@ -27,8 +27,8 @@
     <link rel="stylesheet" href="sweetalert/sweetalert.css">
     <style>
         /* boooo opera */
-        -o-transition:rotate(3600 deg)
-        ; /* works */
+        -o-transition:rotate(3600 deg);
+         /* works */
     </style>
     <script src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
@@ -36,6 +36,7 @@
             document.addEventListener("deviceready", onDeviceReady, false);
           //  loadQuizDetails();
            // getInitQuizData();
+            loaderSpinMini();
         }
 
         // cordova is ready
@@ -47,18 +48,9 @@
                             //document.getElementById("result1").innerHTML += '<li> ' + data[i]['name'] + '</li>';
                             console.log(data[i]['name']);
                         }
-                    }
-            );
-            validateMyTurn();
+                        validateMyTurn();
 
-          /* setTimeout(function () {
-                //  $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
-                loaderSpinMini();
-
-                validateMyTurn();
-
-
-            }, 3000);*/
+        });
         }
     </script>
 
@@ -70,7 +62,7 @@
     <script src="js/myApp.js"></script>
     <script src="js/user.js"></script>
     <script src="js/quizinfo.js"></script>
-    <!--<script charset="utf-8" src="https://cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>-->
+
     <script charset="utf-8" src="js/jquery.dataTables.js"></script>
     <script charset="utf-8" src="https://cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.min.js"></script>
     <script src="js/jquery.form.js"></script>
@@ -83,14 +75,13 @@
             setTimeout(myFunctionLoading, 3000);
 
             function myFunctionLoading() {
-                //$('#loader-mini').show();
-                  loaderSpinMini();
+                $('#loader-mini').show();
                 $('#raysLogo').append('<span>Loading Quiz Data</span>');
               //  get_Last_Quiz_Record();
                 //getQuizData();
                 //get_Quiz_History();
 
-              //  validateMyTurn();
+                validateMyTurn();
 
                 setTimeout(myFunctionLoadingOut, 3000);
                 function myFunctionLoadingOut() {
@@ -120,7 +111,7 @@
 
 
 
-
+<!--
 <div id="pop-alert" class="sweet-alert" tabindex="-1" data-custom-class="" data-has-cancel-button="true" data-has-confirm-button="true" data-allow-outside-click="false" data-has-done-function="false" data-animation="pop" data-timer="null" style="display: none;">
     <div class="sa-icon sa-error" style="display: none;">
 		<span class="sa-x-mark">
@@ -149,7 +140,7 @@
 		</span>
     </div>
     <div class="sa-button-container">
-      <button class="cancel btn btn-lg btn-default" tabindex="2" onclick="popClose();" style="display:inline-block;">Cancel</button>
+        <button class="cancel btn btn-lg btn-default" tabindex="2" style="display: none;">Cancel</button>
         <div class="sa-confirm-button-container">
             <button class="confirm btn btn-lg btn-primary" onclick="ConfirmOk();" tabindex="1" style="display: inline-block;">Play!</button>
             <div class="la-ball-fall">
@@ -161,14 +152,14 @@
     </div>
 </div>
 
-
+-->
 
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
             <!-- Title -->
             <span class="mdl-layout-title">
-  <span class="mdl-layout-title" id='top_title'>
+                  <span class="mdl-layout-title" id='top_title'>
                     <img src="img/logo-horizontal2x.png">
                 </span> 
             </span>
@@ -192,7 +183,7 @@
                       </li>
   -->
 
-
+                  
                     <li onclick="log_out();" class="mdl-menu__item">Logout</li>
                 </ul>
             </div>
@@ -204,8 +195,8 @@
 
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
 
-            <a href="#fixed-tab-home" onclick="validateMyTurn();" class="mdl-layout__tab is-active muidocs-icon-action-home">Home</a>
-            <a href="#fixed-tab-profile" onclick="get_Quiz_History();" class="mdl-layout__tab">Profile</a> 
+            <a href="#fixed-tab-home" onclick="goto_home();" class="mdl-layout__tab is-active muidocs-icon-action-home">Home</a>
+            <a href="#fixed-tab-profile" onclick="myProfile();" class="mdl-layout__tab">Profile</a> 
             <a href="#fixed-tab-profile" onclick="openLeaderBoard();" class="mdl-layout__tab">Leader  Board</a> 
             <a href="#fixed-tab-notify-view" onclick="externalLoad();" class="mdl-layout__tab">Videos</a>  
 
@@ -218,6 +209,11 @@
     <main class="mdl-layout__content">
         <section class="mdl-layout__tab-panel is-active" id="fixed-tab-home">
             <div class="page-content" style="text-align: center;">
+                <script>
+                function onDeviceReady() {
+                    validateMyTurn();
+                }
+                </script>
                 <!--<button type="button" class="mdl-button show-modal" style="background: #d10000; z-index:999999;">Show Modal
                    </button>-->
                 <ul class="center-list main-buttons">
@@ -242,7 +238,8 @@
                         </script>
                         <a href="#" id="getStarted2"
                            style="display: none; color: #d10000 !important; min-width: 100%; z-index: 100;"
-                           class="btn-text button btn btn-lg mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" disabled="">LOADING. PLEASE WAIT...</a>
+                           class="btn-text button btn btn-lg mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Get
+                            Started</a>
                         <!-- <a href="quiz.html" target="_blank" location="no"
                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                             Play
@@ -649,8 +646,6 @@
                 });
 
 
-
-
     });
 
 
@@ -659,3 +654,4 @@
 </script>
 </body>
 </html>
+

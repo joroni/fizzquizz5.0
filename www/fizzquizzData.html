@@ -29,11 +29,12 @@
         }
 
         // device APIs are available
-        // window.open(base_url + "/app/views/media/teaser.html", "_blank", "location=no", "closebuttoncaption=Return");
+        //
         function onDeviceReady() {
-        iabRef = window.open(base_url + '/app/views/media/teaser.html', '_blank', 'location=no');
-          //  iabRef.addEventListener('loadstop', replaceHeaderImage);
-          //  iabRef.addEventListener('exit', iabClose);
+        //    window.open(base_url + "/app/views/media/teaser.html", "_blank", "location=no", "closebuttoncaption=Return");
+          iabRef = window.open('http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/media/teaser.html', '_blank', 'location=no');
+            /*  iabRef.addEventListener('loadstop', replaceHeaderImage);
+            iabRef.addEventListener('exit', iabClose);*/
         }
 
         console.log('cordova is ready');
@@ -95,7 +96,7 @@
 
        // checkQuizTake();
 
-        validateMyTurn();
+      //  validateMyTurn();
 
         $(function () {
             $('#slickQuiz').slickQuiz();
@@ -107,8 +108,6 @@
 function loadQuestionItems() {
     $('#raysDemoHolder').hide();
 }
-
-
 
 
     </script>
@@ -143,7 +142,7 @@ function loadQuestionItems() {
         <div class="mdl-layout__header-row">
             <!-- Title -->
             <span class="mdl-layout-title">
-  <span class="mdl-layout-title" id='top_title'>
+                  <span class="mdl-layout-title" id='top_title'>
                     <img src="img/logo-horizontal2x.png">
                 </span> 
             </span>
@@ -434,7 +433,8 @@ function loadQuestionItems() {
                 localStorage.setItem("attempts", attempts);
                 alert('score recorded!');
                 console.log('score recorded');
-                window.location.replace('main.html');
+                localStorage.removeItem('QuizData');
+                window.location.replace('index.html');
 
             }
 
@@ -461,7 +461,7 @@ function loadQuestionItems() {
             }
 
             localStorage.setItem('recent_quiz', datefromDynamic);
-
+            goto_home();
 
         });
     }
@@ -471,6 +471,7 @@ function loadQuestionItems() {
 <!--<script src='http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/jsonSmallFormat.js?callback=myFunction'></script>-->
 
 <script>
+    pullFreshQuizItems();
     var Quizes = localStorage.getItem("QuizData");
     document.writeln('<script>');
     document.writeln(Quizes);
@@ -558,6 +559,5 @@ function loadQuestionItems() {
     <script src='js/Date.js'></script>-->
 <script src='quizgame/js/master.js'></script>
 <script src='quizgame/js/actions.js'></script>
-
 </body>
 </html>
