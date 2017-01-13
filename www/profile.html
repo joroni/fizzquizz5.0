@@ -164,9 +164,9 @@
         <div class="mdl-layout__header-row">
             <!-- Title -->
 					<span class="mdl-layout-title">
-					 <span class="mdl-layout-title" id='top_title'>
+					  <span class="mdl-layout-title" id='top_title'>
 					<img src="img/logo-horizontal2x.png">
-					</span>
+					</span> 
 					</span>
             <div class="mdl-textfield--align-right hidden">
                 <button id="right_btn" class="mdl-button mdl-js-button mdl-button--icon" onclick="closeDrawer();"><i
@@ -215,15 +215,13 @@
                         <script>
                             setTimeout(function () {
                                 validateMyTurn();
-								 $('#oops').show();
-                                $('#getStarted5').show();
+                                $('#getStarted2').show();
                             }, 6000);
 
                         </script>
-						<span id="oops">Oops... No new quiz yet.</span>
-                        <a href="#" id="getStarted5" onclick="goto_home();"
+                        <a href="#" id="getStarted2"
                            style="display: none; color: #d10000 !important; min-width: 100%; z-index: 100;"
-                           class="btn-text button btn btn-lg mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Home</a>
+                           class="btn-text button btn btn-lg mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">...</a>
                         <!-- <a href="quiz.html" target="_blank" location="no"
                             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                              Play
@@ -240,11 +238,7 @@
     $(document).ready(function () {
 
 
-<<<<<<< HEAD
         $.post("http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/getvideo")
-=======
-        $.post(base_url +"/index.php/getvideo")
->>>>>>> origin/master
                 .done(function ( data ) {
                     $('#externalLoad').html(data);
                 });

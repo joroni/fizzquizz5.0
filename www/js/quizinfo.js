@@ -15,10 +15,7 @@ function get_Quiz_History() {
 
 
         });
-
     })
-
-
 }
 
 
@@ -66,8 +63,8 @@ function validateMyTurn() {
     $.getJSON(base_url + '/index.php/jsonQuiz/' + myDivision2, function (result) {
 
 
-       // console.log('date_published', result.date_published);
-        //console.log('date_expire', result.date_expire);
+        console.log('date_published', result.date_published);
+        console.log('date_expire', result.date_expire);
         localStorage.setItem('dateFrString', result.date_published);
         localStorage.setItem('dateToString', result.date_expire);
         dateFrStringVerify = localStorage.getItem('dateFrString');
@@ -80,16 +77,14 @@ function validateMyTurn() {
             $('#getStarted2').attr('disabled', 'disabled');
             $('#after_quiz').html('<p>See you on the next round...</p>');
             $('#getStarted2').remove();
-			$('#getStarted2').hide();
           //  $('#getStarted2').css('background', 'none');
 
         } else {
             loaderSpinMini();
             alertCalculatingNewSet();
-            console.log('Ok really first time')
-            $('#getStarted2').removeAttr('disabled', 'disabled');
+            console.log('Ok really first time');
             $('#getStarted2').html('<span class="animated-icon"></span>');
-
+            $('#getStarted2').removeAttr('disabled', 'disabled');
             $('#pop-alert').show();
 
         }
@@ -136,11 +131,7 @@ function pullFreshQuizItems() { //getQuizData
     var endDate = localStorage.getItem('dateToString');
 
 
-<<<<<<< HEAD
     $.get("http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/jsonQuiz/" + myDivision2 + "/" + endDate, function (data) {
-=======
-    $.get(base_url +'/index.php/jsonQuiz/' + myDivision2 + '/' + endDate, function (data) {
->>>>>>> origin/master
         // $( ".result" ).html( data );
         console.log(data);
         // alert( "Load was performed." );
@@ -169,7 +160,6 @@ function letterInfo() {
 
 function goto_home() {
     window.location.replace('main.html');
-	 $('#oops').hide();
 }
 
 
@@ -180,11 +170,7 @@ function goto_home() {
 function checkIfQuiz() {
 
 //check kung my questions
-<<<<<<< HEAD
     $.post( "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/check_quiz_status/"+localStorage.getItem("user_id"))
-=======
-    $.post( base_url +'/index.php/check_quiz_status/'+localStorage.getItem("user_id"))
->>>>>>> origin/master
         .done(function( data ) {
             if(data == 1) {
                 console.log('Quiz has contents');

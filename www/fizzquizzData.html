@@ -57,14 +57,7 @@
         document.writeln('<'+'/script>');
     </script>
 
-<<<<<<< HEAD
     <script src='http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/app/views/json/slickquiz.js?callback=mySlickQuiz'></script>
-=======
-<!--    <script src="http://ec2-54-218-211-199.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz.js?callback=mySlickQuiz"></script>
--->
-
-<script src="json/slickquiz.js?callback=mySlickQuiz"></script>
->>>>>>> origin/master
 
     <script>
         mySlickQuiz();
@@ -99,11 +92,7 @@
         //
         function onDeviceReady() {
         //    window.open(base_url + "/app/views/media/teaser.html", "_blank", "location=no", "closebuttoncaption=Return");
-<<<<<<< HEAD
           iabRef = window.open('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/app/views/media/teaser.html', '_blank', 'location=no');
-=======
-          iabRef = window.open('http://ec2-54-218-211-199.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/media/teaser.html', '_blank', 'location=no');
->>>>>>> origin/master
             /*  iabRef.addEventListener('loadstop', replaceHeaderImage);
             iabRef.addEventListener('exit', iabClose);*/
         }
@@ -432,13 +421,8 @@ function loadQuestionItems() {
             else {
 
 
-<<<<<<< HEAD
                 $.get(base_url + '/index.php' + '/user_results_new/update/' + user_id + '/' + datefromDynamic + '/' + area + '/' + divisions + '/' + aunit + '/'  + score_bottle, function ( data ) {
                     //$.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/update/user', {username: username, password: password, fname: fname})
-=======
-                $.get('http://ec2-54-218-211-199.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/user_results_new/update/' + user_id + '/' + datefromDynamic + '/' + area + '/' + divisions + '/' + aunit + '/'  + score_bottle, function ( data ) {
-                    //$.post('http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/update/user', {username: username, password: password, fname: fname})
->>>>>>> origin/master
 
                     if (data == 0) {
                         //alert('uh oh, try again.');
@@ -449,8 +433,7 @@ function loadQuestionItems() {
                         localStorage.setItem("attempts", attempts);
                         console.log('score updated');
                         // navigator.notification.alert('score updated');
-                        window.location.replace('main.html');
-                        $('#getStarted2').remove();
+                        window.location.replace('index.html');
                         $('#pop-alert').hide();
 
                     }

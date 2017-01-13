@@ -70,11 +70,9 @@ check_storage();
 							localStorage.setItem("servertime", data);
 						});
 
-					
+
 					console.log("get_Quiz_History");
-					window.location.href = "index.html";
-					
-					get_Quiz_History();
+					window.location.href = "main.html";
 
 				}
 			});
