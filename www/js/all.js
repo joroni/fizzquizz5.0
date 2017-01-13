@@ -1,6 +1,12 @@
 //$(function() {
 //Enable swiping...
+<<<<<<< HEAD
 var base_url = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2";
+=======
+//var base_url = "http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver";
+
+var base_url = "http://ec2-54-218-211-199.us-west-2.compute.amazonaws.com/fizzquizzserver";
+>>>>>>> origin/master
 
 /* $("#swipe_menu").swipe( {
 	//Generic swipe handler for all directions
