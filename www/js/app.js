@@ -65,7 +65,7 @@ check_storage();
 					localStorage.setItem("userlogin", user_name_input);
 					get_Quiz_History();
 
-					$.post( "http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/servertime/")
+					$.post( "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/servertime/")
 						.done(function( data ) {
 							localStorage.setItem("servertime", data);
 						});

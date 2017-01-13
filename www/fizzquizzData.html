@@ -57,7 +57,7 @@
         document.writeln('<'+'/script>');
     </script>
 
-    <script src='http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz.js?callback=mySlickQuiz'></script>
+    <script src='http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/app/views/json/slickquiz.js?callback=mySlickQuiz'></script>
 
     <script>
         mySlickQuiz();
@@ -92,7 +92,7 @@
         //
         function onDeviceReady() {
         //    window.open(base_url + "/app/views/media/teaser.html", "_blank", "location=no", "closebuttoncaption=Return");
-          iabRef = window.open('http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/media/teaser.html', '_blank', 'location=no');
+          iabRef = window.open('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/app/views/media/teaser.html', '_blank', 'location=no');
             /*  iabRef.addEventListener('loadstop', replaceHeaderImage);
             iabRef.addEventListener('exit', iabClose);*/
         }
@@ -422,7 +422,7 @@ function loadQuestionItems() {
 
 
                 $.get(base_url + '/index.php' + '/user_results_new/update/' + user_id + '/' + datefromDynamic + '/' + area + '/' + divisions + '/' + aunit + '/'  + score_bottle, function ( data ) {
-                    //$.post('http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/update/user', {username: username, password: password, fname: fname})
+                    //$.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/update/user', {username: username, password: password, fname: fname})
 
                     if (data == 0) {
                         //alert('uh oh, try again.');
@@ -448,7 +448,7 @@ function loadQuestionItems() {
 </script>
 
 
-<!--<script src='http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/jsonSmallFormat.js?callback=myFunction'></script>-->
+<!--<script src='http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/app/views/json/jsonSmallFormat.js?callback=myFunction'></script>-->
 
 
 
@@ -483,7 +483,7 @@ function loadQuestionItems() {
                         set: set,
                         score_bottle: score_bottle
                     })
-                    //$.post('http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/update/user', {username: username, password: password, fname: fname})
+                    //$.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/update/user', {username: username, password: password, fname: fname})
                     .done(function ( data ) {
                         if (data == 0) {
                            //navigator.notification.alert('Uh oh, Try again.');
@@ -502,7 +502,7 @@ function loadQuestionItems() {
                         set: set,
                         score_bottle: score_bottle
                     })
-                    //$.post('http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/update/user', {username: username, password: password, fname: fname})
+                    //$.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/update/user', {username: username, password: password, fname: fname})
                     .done(function ( data ) {
                         if (data == 0) {
                            //navigator.notification.alert('Uh oh, Try again.');
