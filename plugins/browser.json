@@ -10,12 +10,6 @@
         "cordova-plugin-battery-status": {
             "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
         },
-        "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
-        },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
-        },
         "cordova-plugin-contacts": {
             "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
         },
@@ -40,9 +34,6 @@
         "cordova-plugin-globalization": {
             "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
         },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
-        },
         "cordova-plugin-media": {
             "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
         },
@@ -52,24 +43,13 @@
         "cordova-plugin-network-information": {
             "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
         },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
-        },
         "cordova-plugin-vibration": {
-            "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
-        },
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
-        },
-        "cordova-plugin-screen-orientation": {
             "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.coca-cola.ccr.fizzquizz"
+        }
+    }
 }

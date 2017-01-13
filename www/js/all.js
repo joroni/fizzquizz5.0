@@ -1,7 +1,6 @@
 //$(function() {
 //Enable swiping...
 var base_url = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2";
-
 /* $("#swipe_menu").swipe( {
 	//Generic swipe handler for all directions
 	swipe:function(event, direction, distance, duration, fingerCount, fingerData) {

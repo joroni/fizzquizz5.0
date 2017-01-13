@@ -7,14 +7,7 @@
     <feature name="Notification">
         <param name="wp-package" value="Notification"/>
     </feature>
-<!-- UA-88813921-1
 
- Google Analytics Account
-FizzQuizz
-Analytics Property
-Fizz Quizz
- -->
- 
     <preference name="fullscreen" value="true"/>
     <preference name="webviewbounce" value="true"/>
     <preference name="phonegap-version" value="3.7.0"/>
