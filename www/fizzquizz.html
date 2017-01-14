@@ -299,22 +299,22 @@
     function downloadJSAtOnload() {
         var element = document.createElement("script");
 /*************** CUSTOM SCRIPT ******************/
-        element.src = 'http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/app/views/json/json' + str +'.js' + '?callback=myFunction';
+        element.src = 'http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/json' + str +'.js' + '?callback=myFunction';
 
      /*   if (str == 'SmallFormat') {
-            element.src = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/app/views/json/jsonSmallFormat.js?callback=myFunction";
+            element.src = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/jsonSmallFormat.js?callback=myFunction";
         } else if (str == 'LargeFormat') {
-            element.src = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/app/views/json/jsonLargeFormat.js?callback=myFunction";
+            element.src = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/jsonLargeFormat.js?callback=myFunction";
         } else if  (str == 'Generalist') {
-            element.src = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/app/views/json/jsonGeneralist.js?callback=myFunction";
+            element.src = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/jsonGeneralist.js?callback=myFunction";
         } else if  (str == 'Merchandiser')  {
-            element.src = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/app/views/json/jsonMerchandiser.js?callback=myFunction";
+            element.src = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/jsonMerchandiser.js?callback=myFunction";
         }
         */
 
             /*************** CUSTOM SCRIPT ******************/
 
-       // element.src = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/app/views/json/jsonSmallFormat.js?callback=myFunction";
+       // element.src = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/jsonSmallFormat.js?callback=myFunction";
         document.body.appendChild(element);
     }
     if (window.addEventListener)
@@ -327,8 +327,8 @@
 </script>
 
 
-<!-- <script src='http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/app/views/json/jsonSmallFormat.js?callback=myFunction'></script> -->
-<script src='http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/app/views/json/slickquiz.js?callback=mySlickQuiz'></script>
+<!-- <script src='http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/jsonSmallFormat.js?callback=myFunction'></script> -->
+<script src='http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz.js?callback=mySlickQuiz'></script>
 
 <script>
     mySlickQuiz();
@@ -371,7 +371,7 @@
             }
             // });
             /* $.get(base_url + '/index.php' + '/user_results/add/'+ user_id +'/'+ division +'/'+setnames+'/'+score_bottle, function( data ) {
-             //$.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/update/user', {username: username, password: password, fname: fname})
+             //$.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/update/user', {username: username, password: password, fname: fname})
 
              if (data == 0) {
              navigator.notification.alert('uh oh, try again.');
@@ -388,7 +388,7 @@
 
 
                 $.get(base_url + '/index.php' + '/user_results/update/' + user_id + '/' + datefromDynamic + '/' + score_bottle, function ( data ) {
-                    //$.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/update/user', {username: username, password: password, fname: fname})
+                    //$.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/update/user', {username: username, password: password, fname: fname})
 
                     if (data == 0) {
                         //alert('uh oh, try again.');
@@ -448,7 +448,7 @@
                         set: set,
                         score_bottle: score_bottle
                     })
-                    //$.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/update/user', {username: username, password: password, fname: fname})
+                    //$.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/update/user', {username: username, password: password, fname: fname})
                     .done(function ( data ) {
                         if (data == 0) {
                            //navigator.notification.alert('Uh oh, Try again.');
@@ -467,7 +467,7 @@
                         set: set,
                         score_bottle: score_bottle
                     })
-                    //$.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/update/user', {username: username, password: password, fname: fname})
+                    //$.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/update/user', {username: username, password: password, fname: fname})
                     .done(function ( data ) {
                         if (data == 0) {
                            //navigator.notification.alert('Uh oh, Try again.');

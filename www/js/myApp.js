@@ -217,7 +217,7 @@ $(".sweet-message").on('click', function() {
 
 
 function openLeaderBoard() {
-window.open('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/adminer/mobile_controllers/user_result.php','_blank','location=no','closebuttoncaption=Return')
+window.open('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/adminer/mobile_controllers/user_result.php','_blank','location=no','closebuttoncaption=Return')
 }
 
 

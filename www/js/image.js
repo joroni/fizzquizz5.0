@@ -46,7 +46,7 @@ function uploadFile(mediaFile) {
     options.chunkedMode = false;
 
     var ft = new FileTransfer();
-    ft.upload( path, "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/uploadpicc",
+    ft.upload( path, "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/uploadpicc",
         function(result) {
             //upload successful
         },

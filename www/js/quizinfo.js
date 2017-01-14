@@ -131,7 +131,7 @@ function pullFreshQuizItems() { //getQuizData
     var endDate = localStorage.getItem('dateToString');
 
 
-    $.get("http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/jsonQuiz/" + myDivision2 + "/" + endDate, function (data) {
+    $.get("http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/jsonQuiz/" + myDivision2 + "/" + endDate, function (data) {
         // $( ".result" ).html( data );
         console.log(data);
         // alert( "Load was performed." );
@@ -170,7 +170,7 @@ function goto_home() {
 function checkIfQuiz() {
 
 //check kung my questions
-    $.post( "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/check_quiz_status/"+localStorage.getItem("user_id"))
+    $.post( "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/check_quiz_status/"+localStorage.getItem("user_id"))
         .done(function( data ) {
             if(data == 1) {
                 console.log('Quiz has contents');

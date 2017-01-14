@@ -5,7 +5,7 @@ function log_out() {
 
 }
 
-var base_url = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2";
+var base_url = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver";
 
 
 $(function () {
@@ -357,7 +357,7 @@ function imageProfile() {
  var user_email = $('#email').val();
 
  //  $.post( base_url+'/update/user', { username: username, fname: fname, lname: lname, fname: fname })
- $.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver2/index.php/update/user', {username: username, password: password, fname: fname})
+ $.post('http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/update/user', {username: username, password: password, fname: fname})
  .done(function ( data ) {
  if (data == 0) {
  $('#update_0').show();
