@@ -1,13 +1,13 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.coca-cola.ccr.fizzquizz"
         version="1.0.15">
     <name>Fizz Quizz</name>
-    <description>Newsletter App</description>
+    <description>Quiz Game App</description>
     <author href="http://phonegap.com" email="support@phonegap.com">SDC Manila Team</author>
     <content src="index.html"/>
     <feature name="Notification">
         <param name="wp-package" value="Notification"/>
     </feature>
-
+    <preference name="android-build-tool" value="ant" />
     <preference name="fullscreen" value="true"/>
     <preference name="webviewbounce" value="true"/>
     <preference name="phonegap-version" value="3.7.0"/>
